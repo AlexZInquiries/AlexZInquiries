@@ -5,28 +5,20 @@ import { Responsive } from "react-grid-layout";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { AnimationSwitch } from "./animation-swith";
-import MiniPic from "./mini-pic";
-
 import { cn } from "@/lib/utils";
 import AvatarTransition from "@/components/avatar";
 import { DockDemo } from "@/components/dock-demo";
 import { ThemeSwitch } from "@/components/theme-switch";
-import CardStack from "@/components/card-stack";
 import AnimatedEmoji from "@/components/animated-emoji";
 import IconCloud from "@/components/icon-cloud";
-import MapComponent from "@/components/map";
-
-import { MiniModel } from "@/components/mini";
 import { layouts, selectedCard } from "@/config/layout";
 import { icons } from "@/config/icons";
 import useWindowWidth from "@/hooks/useWindowWidth";
-import Project from "./project";
+import Item from "@/components/item";
 
 interface HomeProps {
-	photos: string[];
 	avatarUrl: string;
-	dogUrl: string;
+	cartoonUrl: string;
 	actionImageUrl: string;
 	resumeUrl: string;
 	webagentUrl: string;
@@ -35,9 +27,8 @@ interface HomeProps {
 }
 
 const Home = ({
-	photos,
 	avatarUrl,
-	dogUrl,
+	cartoonUrl,
 	actionImageUrl,
 	resumeUrl,
 	webagentUrl,
@@ -45,8 +36,7 @@ const Home = ({
 	paperUrl,
 }: HomeProps) => {
 	const width = useWindowWidth();
-	const [tabSelected, setTabSelected] = useState("all");
-	const [animated, setAnimated] = useState(false);
+	const [tabSelected, setTabSelected] = useState("about");
 	const router = useRouter();
 
 	if (!width) {
@@ -71,17 +61,11 @@ const Home = ({
 				}}
 				radius={"full"}
 				onSelectionChange={(selected) => {
-					if (selected === "blog") {
-						router.push("/blog");
-
-						return;
-					}
 					setTabSelected(selected as string);
 				}}>
-				<Tab key="all" title="All" />
 				<Tab key="about" title="About" />
+				<Tab key="publications" title="Publications" />
 				<Tab key="projects" title="Projects" />
-				<Tab key="blog" title="Blog" />
 			</Tabs>
 
 			<Responsive
@@ -99,13 +83,15 @@ const Home = ({
 						"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex flex-col justify-between p-5 overflow-hidden z-[1]",
 						selectedCard[tabSelected]["avatar"] ? "opacity-100" : "opacity-50"
 					)}>
-					<AvatarTransition avatarUrl={avatarUrl} dogUrl={dogUrl} />
+					<AvatarTransition avatarUrl={avatarUrl} cartoonUrl={cartoonUrl} />
 					<p className="text-sm md:text-medium">
-						Hey! I’m <span className="font-oleo text-2xl"> Eric</span>, a
-						software engineer with a knack for AI, hailing from UCLA and Purdue.
-						Currently, I’m building a cool marketing AI agent. My world revolves
-						around web development, deep learning, and data science. And yes, I
-						have an adorable dog named Bert!
+						<span className="text-xl"><b>Zhiyu Alex Zhang 张智瑜</b></span>
+						, an undergraduate student at the University of Michigan pursuing a
+						dual degree in computer science and music, is an interdisciplinary
+						researcher with interests in
+						<b><i> education technology for the creative arts</i></b>,
+						<b><i> human-centered UX design</i></b>, and
+						<b><i> ethnomusicology</i></b>.
 					</p>
 					<DockDemo resumeUrl={resumeUrl} />
 				</div>
@@ -119,16 +105,7 @@ const Home = ({
 					)}>
 					<ThemeSwitch />
 				</div>
-				<div
-					key="cardStack"
-					className={cn(
-						"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center z-[2]",
-						selectedCard[tabSelected]["cardStack"]
-							? "opacity-100"
-							: "opacity-50"
-					)}>
-					<CardStack photos={photos} />
-				</div>
+
 				<div
 					key="animatedEmoji"
 					className={cn(
@@ -139,16 +116,7 @@ const Home = ({
 					)}>
 					<AnimatedEmoji />
 				</div>
-				<div
-					key="mapComponent"
-					className={cn(
-						"bg-white dark:bg-darkBg cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center z-[1]",
-						selectedCard[tabSelected]["mapComponent"]
-							? "opacity-100"
-							: "opacity-50"
-					)}>
-					<MapComponent />
-				</div>
+
 				<div
 					key="iconCloud"
 					className={cn(
@@ -159,13 +127,14 @@ const Home = ({
 					)}>
 					<IconCloud iconSlugs={icons} />
 				</div>
+
 				<div
 					key="webAgent"
 					className={cn(
 						"bg-white dark:bg-darkBg dark:border-2 dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center overflow-hidden z-[1]",
 						selectedCard[tabSelected]["webAgent"] ? "opacity-100" : "opacity-50"
 					)}>
-					<Project
+					<Item
 						imageUrl={webagentUrl}
 						linkUrl="https://www.simplegen.ai/"
 						linkText="Web Agent"
@@ -179,13 +148,14 @@ const Home = ({
 						imageClass="w-full h-full object-contain rounded-2xl"
 					/>
 				</div>
+
 				<div
 					key="chatBot"
 					className={cn(
 						"bg-white dark:bg-darkBg dark:border-2 dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center overflow-hidden z-[1]",
 						selectedCard[tabSelected]["chatBot"] ? "opacity-100" : "opacity-50"
 					)}>
-					<Project
+					<Item
 						imageUrl={chatbotUrl}
 						linkUrl="https://beta.simplegen.ai/"
 						linkText="AI Chatbot"
@@ -201,27 +171,12 @@ const Home = ({
 				</div>
 
 				<div
-					key="miniModel"
-					className={cn(
-						"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center z-[1] overflow-hidden",
-						selectedCard[tabSelected]["miniModel"]
-							? "opacity-100"
-							: "opacity-50"
-					)}>
-					{animated ? <MiniModel /> : <MiniPic />}
-					<AnimationSwitch
-						animated={animated}
-						className="absolute top-4 right-4 z-50"
-						setAnimated={setAnimated}
-					/>
-				</div>
-				<div
 					key="actions"
 					className={cn(
 						"bg-white dark:bg-darkBg dark:border-2 dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center overflow-hidden z-[1]",
 						selectedCard[tabSelected]["actions"] ? "opacity-100" : "opacity-50"
 					)}>
-					<Project
+					<Item
 						imageUrl={actionImageUrl}
 						linkUrl="https://action.simplegen.ai/"
 						linkText="GPT Actions"
@@ -235,13 +190,14 @@ const Home = ({
 						imageClass="w-full h-full rounded-2xl object-contain"
 					/>
 				</div>
+
 				<div
 					key="paper"
 					className={cn(
 						"bg-white dark:bg-darkBg dark:border-2 dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center z-[1] overflow-hidden",
 						selectedCard[tabSelected]["paper"] ? "opacity-100" : "opacity-50"
 					)}>
-					<Project
+					<Item
 						imageUrl={paperUrl}
 						linkUrl="https://ojs.aaai.org/index.php/AAAI/article/view/29266"
 						linkText="DT-VAEGAN"

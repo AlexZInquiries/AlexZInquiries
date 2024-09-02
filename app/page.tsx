@@ -2,9 +2,8 @@ import Home from "@/components/home";
 import { getPhotoUrl, listPhotos } from "@/firebase/db/photo";
 
 export default async function App() {
-  const photosPromise = listPhotos("photos");
-  const avatarUrlPromise = getPhotoUrl("avatar/eric.jpg");
-  const dogUrlPromise = getPhotoUrl("avatar/dog.jpg");
+  const avatarUrlPromise = getPhotoUrl("avatar/profile-picture.jpg"); // Fixed
+  const cartoonUrlPromise = getPhotoUrl("avatar/cartoon-picture.jpg"); // Fixed
   const actionImageUrlPromise = getPhotoUrl("projects/actions.jpg");
   const webagentUrlPromise = getPhotoUrl("projects/webagent.jpg");
   const chatbotUrlPromise = getPhotoUrl("projects/chatbot.jpg");
@@ -12,18 +11,16 @@ export default async function App() {
   const paperUrlPromise = getPhotoUrl("projects/paper.jpg");
 
   const [
-    photos,
     avatarUrl,
-    dogUrl,
+    cartoonUrl,
     actionImageUrl,
     resumeUrl,
     webagentUrl,
     chatbotUrl,
     paperUrl,
   ] = await Promise.all([
-    photosPromise,
     avatarUrlPromise,
-    dogUrlPromise,
+    cartoonUrlPromise,
     actionImageUrlPromise,
     resumeUrlPromise,
     webagentUrlPromise,
@@ -36,9 +33,8 @@ export default async function App() {
       actionImageUrl={actionImageUrl}
       avatarUrl={avatarUrl}
       chatbotUrl={chatbotUrl}
-      dogUrl={dogUrl}
+      cartoonUrl={cartoonUrl}
       paperUrl={paperUrl}
-      photos={photos}
       resumeUrl={resumeUrl}
       webagentUrl={webagentUrl}
     />
