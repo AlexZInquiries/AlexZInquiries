@@ -5,7 +5,6 @@ import { Responsive } from "react-grid-layout";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import Paper from "./paper";
 import { AnimationSwitch } from "./animation-swith";
 import MiniPic from "./mini-pic";
 
@@ -17,10 +16,8 @@ import CardStack from "@/components/card-stack";
 import AnimatedEmoji from "@/components/animated-emoji";
 import IconCloud from "@/components/icon-cloud";
 import MapComponent from "@/components/map";
-import WebAgent from "@/components/webagent";
-import Chatbot from "@/components/chatbot";
+
 import { MiniModel } from "@/components/mini";
-import Actions from "@/components/actions";
 import { layouts, selectedCard } from "@/config/layout";
 import { icons } from "@/config/icons";
 import useWindowWidth from "@/hooks/useWindowWidth";
@@ -181,7 +178,6 @@ const Home = ({
 						imageHeight={2380}
 						imageClass="w-full h-full object-contain rounded-2xl"
 					/>
-					{/* <WebAgent webAgentUrl={webagentUrl} /> */}
 				</div>
 				<div
 					key="chatBot"
@@ -202,8 +198,8 @@ const Home = ({
 						imageHeight={1280}
 						imageClass="h-48 md:h-96 object-cover rounded-2xl"
 					/>
-					{/* <Chatbot chatbotUrl={chatbotUrl} /> */}
 				</div>
+
 				<div
 					key="miniModel"
 					className={cn(
@@ -238,7 +234,6 @@ const Home = ({
 						imageHeight={1280}
 						imageClass="w-full h-full rounded-2xl object-contain"
 					/>
-					{/* <Actions photoUrl={actionImageUrl} /> */}
 				</div>
 				<div
 					key="paper"
@@ -259,7 +254,6 @@ const Home = ({
 						imageWidth={1577}
 						imageClass="h-full w-full rounded-2xl object-contain"
 					/>
-					{/* <Paper paperUrl={paperUrl} /> */}
 				</div>
 			</Responsive>
 		</div>
