@@ -63,18 +63,19 @@ export const layouts: Record<string, Layouts> = {
 
 	projects: {
 		lg: [
-			{ i: "chatBot", x: 1, y: 0, w: 2, h: 2 },
-			{ i: "animatedEmoji", x: 3, y: 0, w: 1, h: 2 },
-			{ i: "webAgent", x: 0, y: 0, w: 1, h: 4 },
-			{ i: "paper", x: 1, y: 1, w: 1, h: 2 },
-			{ i: "actions", x: 2, y: 1, w: 2, h: 2 },
-			{ i: "avatar", x: 0, y: 2, w: 2, h: 2 },
-			{ i: "iconCloud", x: 3, y: 3, w: 1, h: 2 },
-			{ i: "themeSwitch", x: 1, y: 3, w: 1, h: 2 },
+			// { i: "chatBot", x: 1, y: 0, w: 2, h: 2 },
+			// { i: "animatedEmoji", x: 3, y: 0, w: 1, h: 2 },
+			// { i: "webAgent", x: 0, y: 0, w: 1, h: 4 },
+			// { i: "paper", x: 1, y: 1, w: 1, h: 2 },
+			// { i: "actions", x: 2, y: 1, w: 2, h: 2 },
+			// { i: "avatar", x: 0, y: 2, w: 2, h: 2 },
+			// { i: "iconCloud", x: 3, y: 3, w: 1, h: 2 },
+			// { i: "themeSwitch", x: 1, y: 3, w: 1, h: 2 },
+			{ i: "multimeter", x: 0, y: 0, w: 2, h: 2 },
 		],
 		md: [
 			{ i: "chatBot", x: 1, y: 0, w: 2, h: 2 },
-			{ i: "animatedEmoji", x: 3, y: 0, w: 1, h: 2 },
+			{ i: "animatedEmoji", x: 3, y: 0, w: 2, h: 2 },
 			{ i: "webAgent", x: 0, y: 0, w: 1, h: 4 },
 			{ i: "paper", x: 1, y: 1, w: 1, h: 2 },
 			{ i: "actions", x: 2, y: 1, w: 2, h: 2 },
@@ -129,17 +130,9 @@ export const selectedCard: Record<string, Record<string, boolean>> = {
 		// paper: true,
 	},
 	publications: {
-		avatar: false,
-		themeSwitch: false,
-		iconCloud: false,
-		education: false,
-		professionalExperience: false,
+
 	},
 	projects: {
-		avatar: false,
-		themeSwitch: false,
-		iconCloud: false,
-		education: false,
-		professionalExperience: false,
+		multimeter: true,
 	},
 };

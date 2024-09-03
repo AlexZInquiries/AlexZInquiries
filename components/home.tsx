@@ -26,6 +26,7 @@ interface HomeProps {
 	webagentUrl: string;
 	chatbotUrl: string;
 	paperUrl: string;
+	multimeterUrl: string;
 }
 
 const Home = ({
@@ -36,6 +37,7 @@ const Home = ({
 	webagentUrl,
 	chatbotUrl,
 	paperUrl,
+	multimeterUrl,
 }: HomeProps) => {
 	const width = useWindowWidth();
 	const [tabSelected, setTabSelected] = useState("about");
@@ -148,6 +150,27 @@ const Home = ({
 						selectedCard[tabSelected]["professionalExperience"] ? "opacity-100" : "opacity-50"
 					)}>
 					<ProfessionalExperience />
+				</div>
+
+				<div
+					key="multimeter"
+					className={cn(
+						"bg-white dark:bg-darkBg dark:border-2 dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center overflow-hidden z-[1]",
+						selectedCard[tabSelected]["multimeter"] ? "opacity-100" : "opacity-50"
+					)}>
+					<Item
+						imageUrl={multimeterUrl}
+						linkUrl="https://your-multimeter-project-url.com" // Replace with actual URL
+						linkText="MultiMeter"
+						containerStyles="bg-cardPurple dark:bg-darkBg"
+						imageStyles="w-full h-full object-cover"
+						overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
+						btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
+						btnHoverStyles="hover:bg-default-100 dark:border-knight"
+						imageWidth={1164}
+						imageHeight={2380}
+						imageClass="w-full h-full object-cover"
+					/>
 				</div>
 
 				<div

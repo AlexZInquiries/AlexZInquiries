@@ -9,6 +9,7 @@ export default async function App() {
   const chatbotUrlPromise = getPhotoUrl("projects/chatbot.jpg");
   const resumeUrlPromise = getPhotoUrl("Chengxiang-Wu-Resume-2024.pdf");
   const paperUrlPromise = getPhotoUrl("projects/paper.jpg");
+  const multimeterUrlPromise = getPhotoUrl("projects/multimeter.jpg");
 
   const [
     avatarUrl,
@@ -18,6 +19,7 @@ export default async function App() {
     webagentUrl,
     chatbotUrl,
     paperUrl,
+    multimeterUrl,
   ] = await Promise.all([
     avatarUrlPromise,
     cartoonUrlPromise,
@@ -26,6 +28,7 @@ export default async function App() {
     webagentUrlPromise,
     chatbotUrlPromise,
     paperUrlPromise,
+    multimeterUrlPromise,
   ]);
 
   return (
@@ -37,6 +40,7 @@ export default async function App() {
       paperUrl={paperUrl}
       resumeUrl={resumeUrl}
       webagentUrl={webagentUrl}
+      multimeterUrl={multimeterUrl}
     />
   );
 }
