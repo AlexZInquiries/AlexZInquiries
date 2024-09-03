@@ -10,11 +10,13 @@ import AvatarTransition from "@/components/avatar";
 import { DockDemo } from "@/components/dock-demo";
 import { ThemeSwitch } from "@/components/theme-switch";
 import AnimatedEmoji from "@/components/animated-emoji";
+import Item from "@/components/item";
+import ProfessionalExperience from "@/components/professional-experience";
+import Education from "@/components/education";
 import IconCloud from "@/components/icon-cloud";
 import { layouts, selectedCard } from "@/config/layout";
 import { icons } from "@/config/icons";
 import useWindowWidth from "@/hooks/useWindowWidth";
-import Item from "@/components/item";
 
 interface HomeProps {
 	avatarUrl: string;
@@ -95,6 +97,7 @@ const Home = ({
 					</p>
 					<DockDemo resumeUrl={resumeUrl} />
 				</div>
+
 				<div
 					key="themeSwitch"
 					className={cn(
@@ -126,6 +129,24 @@ const Home = ({
 							: "opacity-50"
 					)}>
 					<IconCloud iconSlugs={icons} />
+				</div>
+
+				<div
+					key="education"
+					className={cn(
+						"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center overflow-hidden z-[1]",
+						selectedCard[tabSelected]["education"] ? "opacity-100" : "opacity-50"
+					)}>
+					<Education />
+				</div>
+
+				<div
+					key="professionalExperience"
+					className={cn(
+						"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center overflow-hidden z-[1]",
+						selectedCard[tabSelected]["professionalExperience"] ? "opacity-100" : "opacity-50"
+					)}>
+					<ProfessionalExperience />
 				</div>
 
 				<div
