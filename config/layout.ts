@@ -5,13 +5,15 @@ export const layouts: Record<string, Layouts> = {
 	about: {
 		lg: [
 			{ i: "avatar", x: 0, y: 0, w: 2, h: 2 }, // Fixed
-			{ i: "iconCloud", x: 1, y: 1, w: 1, h: 2 }, // Fixed
-			{ i: "themeSwitch", x: 0, y: 1, w: 1, h: 2 }, // Fixed
-			{ i: "animatedEmoji", x: 2, y: 2, w: 1, h: 2 },
-			{ i: "webAgent", x: 3, y: 0, w: 1, h: 4 },
-			{ i: "chatBot", x: 0, y: 2, w: 2, h: 2 },
-			{ i: "actions", x: 3, y: 2, w: 2, h: 2 },
-			{ i: "paper", x: 0, y: 3, w: 1, h: 2 },
+			{ i: "education", x: 2, y: 0, w: 2, h: 2 }, // Fixed
+			{ i: "professionalExperience", x: 2, y: 2, w: 2, h: 2 }, // Fixed
+			{ i: "themeSwitch", x: 2, y: 3, w: 1, h: 2 }, // Fixed
+			{ i: "iconCloud", x: 3, y: 3, w: 1, h: 2 }, // Fixed
+			// { i: "animatedEmoji", x: 2, y: 2, w: 1, h: 2 }, // To be fixed
+			// { i: "webAgent", x: 3, y: 0, w: 1, h: 4 },
+			// { i: "chatBot", x: 0, y: 2, w: 2, h: 2 },
+			// { i: "actions", x: 3, y: 2, w: 2, h: 2 },
+			// { i: "paper", x: 0, y: 3, w: 1, h: 2 },
 		],
 		md: [
 			{ i: "avatar", x: 0, y: 0, w: 2, h: 2 },
@@ -113,21 +115,27 @@ export const selectedCard: Record<string, Record<string, boolean>> = {
 	about: {
 		avatar: true,
 		themeSwitch: true,
-		animatedEmoji: true,
 		iconCloud: true,
-		webAgent: true,
-		chatBot: true,
-		actions: true,
-		paper: true,
+		education: true,
+		professionalExperience: true,
+		// animatedEmoji: true,
+		// webAgent: true,
+		// chatBot: true,
+		// actions: true,
+		// paper: true,
+	},
+	publications: {
+		avatar: false,
+		themeSwitch: false,
+		iconCloud: false,
+		education: false,
+		professionalExperience: false,
 	},
 	projects: {
 		avatar: false,
 		themeSwitch: false,
-		animatedEmoji: true,
 		iconCloud: false,
-		webAgent: true,
-		chatBot: true,
-		actions: true,
-		paper: true,
+		education: false,
+		professionalExperience: false,
 	},
 };
