@@ -66,6 +66,7 @@ const Home = ({
 					setTabSelected(selected as string);
 				}}>
 				<Tab key="about" title="About" />
+				<Tab key="collaborations" title="Collaborations" />
 				<Tab key="publications" title="Publications" />
 				<Tab key="projects" title="Projects" />
 			</Tabs>

@@ -57,6 +57,10 @@ export const layouts: Record<string, Layouts> = {
 		],
 	},
 
+	// To be fixed
+	collaborations: {},
+	publications: {},
+
 	projects: {
 		lg: [
 			{ i: "chatBot", x: 1, y: 0, w: 2, h: 2 },
