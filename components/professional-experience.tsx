@@ -10,7 +10,7 @@ const ProfessionalExperience = () => {
             <CardBody>
                 <ul className="list-disc pl-5 mb-4">
                     <li>
-                        <strong>Visiting Researcher</strong> - NYU Shanghai (June 2024 - Aug 2024)
+                        <strong>Visiting Researcher</strong> - Music Experience Design (MusED) Lab at NYU Shanghai (Jun 2024 - Aug 2024)
                     </li>
                     <li>
                         <strong>Software Engineer Intern</strong> - SoundBug (May 2023 - Aug 2023)
