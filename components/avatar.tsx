@@ -6,12 +6,12 @@ import { MdOutlineSync } from "react-icons/md";
 
 interface AvatarTransitionProps {
   avatarUrl: string;
-  dogUrl: string;
+  cartoonUrl: string;
 }
 
 const AvatarTransition: React.FC<AvatarTransitionProps> = ({
   avatarUrl,
-  dogUrl,
+  cartoonUrl,
 }: AvatarTransitionProps) => {
   const [toggle, setToggle] = useState(false);
 
@@ -73,7 +73,7 @@ const AvatarTransition: React.FC<AvatarTransitionProps> = ({
             alt="Dog Avatar"
             className="w-24 h-24 md:w-28 md:h-28 object-cover mb-4 border-2 border-transparent dark:border-knight rounded-full"
             height={128}
-            src={dogUrl}
+            src={cartoonUrl}
             width={128}
           />
         </motion.div>

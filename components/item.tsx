@@ -2,7 +2,7 @@ import { Link } from "@nextui-org/react";
 import { GoArrowUpRight } from "react-icons/go";
 import Image from "next/image";
 
-interface ProjectProps {
+interface ItemProps {
 	imageUrl: string;
 	linkUrl: string;
 	linkText: string;
@@ -16,7 +16,7 @@ interface ProjectProps {
 	imageClass: string;
 }
 
-const Project = ({
+const Item = ({
 	imageUrl,
 	linkUrl,
 	linkText,
@@ -28,7 +28,7 @@ const Project = ({
 	imageWidth,
 	imageHeight,
 	imageClass,
-}: ProjectProps) => {
+}: ItemProps) => {
 	return (
 		<div className={`relative w-full h-full group ${containerStyles}`}>
 			{overlayStyles && <div className={`absolute ${overlayStyles}`} />}
@@ -56,4 +56,4 @@ const Project = ({
 	);
 };
 
-export default Project;
+export default Item;

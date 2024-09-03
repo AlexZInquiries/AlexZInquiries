@@ -2,14 +2,11 @@
 const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig = {
+	basePath: "/personal-website-clone",
+	assetPrefix: "/personal-website-clone/",
 	images: {
-		domains: [
-			"firebasestorage.googleapis.com",
-			"raw.githubusercontent.com",
-			"www.notion.so",
-		],
+		domains: ["firebasestorage.googleapis.com", "raw.githubusercontent.com"],
 	},
-	assetPrefix: isProd ? "/your-repo-name/" : "",
 };
 
 module.exports = nextConfig;
