@@ -7,8 +7,8 @@ export const layouts: Record<string, Layouts> = {
 			{ i: "avatar", x: 0, y: 0, w: 2, h: 2 }, // Fixed
 			{ i: "education", x: 2, y: 0, w: 2, h: 2 }, // Fixed
 			{ i: "professionalExperience", x: 2, y: 2, w: 2, h: 2 }, // Fixed
-			{ i: "themeSwitch", x: 2, y: 3, w: 1, h: 2 }, // Fixed
-			{ i: "iconCloud", x: 3, y: 3, w: 1, h: 2 }, // Fixed
+			{ i: "themeSwitch", x: 0, y: 3, w: 1, h: 2 }, // Fixed
+			{ i: "iconCloud", x: 1, y: 3, w: 1, h: 2 }, // Fixed
 			// { i: "animatedEmoji", x: 2, y: 2, w: 1, h: 2 }, // To be fixed
 			// { i: "webAgent", x: 3, y: 0, w: 1, h: 4 },
 			// { i: "chatBot", x: 0, y: 2, w: 2, h: 2 },
