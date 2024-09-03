@@ -85,7 +85,8 @@ const Home = ({
 				{Object.entries(selectedCard[tabSelected]).map(([key, isSelected]) => {
 					if (!isSelected) return null;
 					
-					const commonClasses = "bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex justify-center items-center overflow-hidden z-[1]";
+					// Common classes for all cards; removed justify content to customize cards
+					const commonClasses = "bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex overflow-hidden z-[1]";
 					
 					switch (key) {
 						case "avatar":
@@ -106,7 +107,7 @@ const Home = ({
 							);
 						case "themeSwitch":
 							return (
-								<div key={key} className={commonClasses}>
+								<div key={key} className={`${commonClasses} justify-center items-center`}>
 									<ThemeSwitch />
 								</div>
 							);
