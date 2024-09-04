@@ -60,7 +60,7 @@ const Home = ({
 					setTabSelected(selected as string);
 				}}>
 				<Tab key="about" title="About" />
-				<Tab key="collaborations" title="Collaborations" />
+				<Tab key="research" title="Research" />
 				<Tab key="publications" title="Publications" />
 				<Tab key="projects" title="Projects" />
 			</Tabs>
@@ -81,6 +81,7 @@ const Home = ({
 					const commonClasses = "bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex overflow-hidden z-[1]";
 					
 					switch (key) {
+						// About
 						case "avatar":
 							return (
 								<div key={key} className={`${commonClasses} flex-col justify-between p-5`}>
@@ -121,6 +122,9 @@ const Home = ({
 									<Education />
 								</div>
 							);
+						// Research
+						// Publications
+						// Projects
 						case "professionalExperience":
 							return (
 								<div key={key} className={commonClasses}>

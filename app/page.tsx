@@ -7,7 +7,7 @@ export default async function App() {
   const cartoonUrlPromise = getPhotoUrl("avatar/cartoon-picture.jpg");
   const resumeUrlPromise = getPhotoUrl("Chengxiang-Wu-Resume-2024.pdf");
 
-  // Collaborations
+  // Research
 
   // Publications
 
@@ -19,7 +19,7 @@ export default async function App() {
     avatarUrl,
     cartoonUrl,
     resumeUrl,
-    // Collaborations
+    // Research
     // Publications
     // Projects
     multimeterUrl,
@@ -28,7 +28,7 @@ export default async function App() {
     avatarUrlPromise,
     cartoonUrlPromise,
     resumeUrlPromise,
-    // Collaborations
+    // Research
     // Publications
     // Projects
     multimeterUrlPromise,
@@ -40,7 +40,7 @@ export default async function App() {
       avatarUrl={avatarUrl}
       cartoonUrl={cartoonUrl}
       resumeUrl={resumeUrl}
-      // Collaborations
+      // Research
       // Publications
       // Projects
       multimeterUrl={multimeterUrl}

@@ -25,7 +25,7 @@ export const layouts: Record<string, Layouts> = {
 		],
 	},
 
-	collaborations: {
+	research: {
 
 	},
 	publications: {
@@ -59,7 +59,7 @@ export const selectedCard: Record<string, Record<string, boolean>> = {
 		education: true,
 		professionalExperience: true,
 	},
-	collaborations: {
+	research: {
 
 	},
 	publications: {
