@@ -21,22 +21,14 @@ import useWindowWidth from "@/hooks/useWindowWidth";
 interface HomeProps {
 	avatarUrl: string;
 	cartoonUrl: string;
-	actionImageUrl: string;
 	resumeUrl: string;
-	webagentUrl: string;
-	chatbotUrl: string;
-	paperUrl: string;
 	multimeterUrl: string;
 }
 
 const Home = ({
 	avatarUrl,
 	cartoonUrl,
-	actionImageUrl,
 	resumeUrl,
-	webagentUrl,
-	chatbotUrl,
-	paperUrl,
 	multimeterUrl,
 }: HomeProps) => {
 	const width = useWindowWidth();
@@ -153,7 +145,6 @@ const Home = ({
 									/>
 								</div>
 							);
-						// Add cases for other items (webAgent, chatBot, actions, paper) here...
 						default:
 							return null;
 					}
