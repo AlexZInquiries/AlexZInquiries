@@ -19,16 +19,26 @@ import { icons } from "@/config/icons";
 import useWindowWidth from "@/hooks/useWindowWidth";
 
 interface HomeProps {
+	// About
 	avatarUrl: string;
 	cartoonUrl: string;
 	resumeUrl: string;
+	// Research
+	// Publications
+	amis2023Url: string;
+	// Projects
 	multimeterUrl: string;
 }
 
 const Home = ({
+	// About
 	avatarUrl,
 	cartoonUrl,
 	resumeUrl,
+	// Research
+	amis2023Url,
+	// Publications
+	// Projects
 	multimeterUrl,
 }: HomeProps) => {
 	const width = useWindowWidth();
@@ -138,6 +148,24 @@ const Home = ({
 										imageUrl={multimeterUrl}
 										linkUrl="https://github.com/RealAlexZ/MultiMeter"
 										linkText="MultiMeter"
+										containerStyles="bg-cardPurple dark:bg-darkBg"
+										imageStyles="w-full h-full object-cover"
+										overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
+										btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
+										btnHoverStyles="hover:bg-default-100 dark:border-knight"
+										imageWidth={795}
+										imageHeight={515}
+										imageClass="w-full h-full object-cover"
+									/>
+								</div>
+							);
+						case "amis2023":
+							return (
+								<div key={key} className={commonClasses}>
+									<Item
+										imageUrl={amis2023Url}
+										linkUrl="https://link-to-amis-2023-publication"
+										linkText="AMIS 2023"
 										containerStyles="bg-cardPurple dark:bg-darkBg"
 										imageStyles="w-full h-full object-cover"
 										overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"

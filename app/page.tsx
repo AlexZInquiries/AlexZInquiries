@@ -10,6 +10,7 @@ export default async function App() {
   // Research
 
   // Publications
+  const amis2023UrlPromise = getPhotoUrl("publications/amis-2023.png");
 
   // Projects
   const multimeterUrlPromise = getPhotoUrl("projects/multimeter.jpg");
@@ -21,6 +22,7 @@ export default async function App() {
     resumeUrl,
     // Research
     // Publications
+    amis2023Url,
     // Projects
     multimeterUrl,
   ] = await Promise.all([
@@ -30,6 +32,7 @@ export default async function App() {
     resumeUrlPromise,
     // Research
     // Publications
+    amis2023UrlPromise,
     // Projects
     multimeterUrlPromise,
   ]);
@@ -42,6 +45,7 @@ export default async function App() {
       resumeUrl={resumeUrl}
       // Research
       // Publications
+      amis2023Url={amis2023Url}
       // Projects
       multimeterUrl={multimeterUrl}
     />

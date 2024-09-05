@@ -28,8 +28,23 @@ export const layouts: Record<string, Layouts> = {
 	research: {
 
 	},
-	publications: {
 
+	publications: {
+		lg: [
+			{ i: "amis2023", x: 0, y: 0, w: 2, h: 2 },
+		],
+		md: [
+
+		],
+		sm: [
+		
+		],
+		xs: [
+		
+		],
+		xxs: [
+		
+		],
 	},
 
 	projects: {
@@ -63,7 +78,7 @@ export const selectedCard: Record<string, Record<string, boolean>> = {
 
 	},
 	publications: {
-
+		amis2023: true,
 	},
 	projects: {
 		multimeter: true,
