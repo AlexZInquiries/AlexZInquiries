@@ -89,7 +89,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 	};
 
 	return (
-		<Card className="w-full max-w-[800px] bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight rounded-[2rem]">
+		<Card className="w-[calc(100%-30px)] bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight rounded-[2rem] m-[15px]">
 			{renderProjectContent()}
 			<CardBody>
 				<Button
