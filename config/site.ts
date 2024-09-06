@@ -6,6 +6,6 @@ export const siteConfig = {
 	links: {
 		github: "https://github.com/RealAlexZ",
 		linkedin: "https://www.linkedin.com", // To be fixed
-		email: "mailto:alexzinquiries@gmail.com", // test
+		email: "mailto:alexzinquiries@gmail.com",
 	},
 };

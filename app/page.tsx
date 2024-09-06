@@ -1,45 +1,52 @@
 import Home from "@/components/home";
-import { getPhotoUrl, listPhotos } from "@/firebase/db/photo";
+import { getPhotoUrl } from "@/firebase/db/photo";
 
 export default async function App() {
-  const avatarUrlPromise = getPhotoUrl("avatar/profile-picture.jpg"); // Fixed
-  const cartoonUrlPromise = getPhotoUrl("avatar/cartoon-picture.jpg"); // Fixed
-  const actionImageUrlPromise = getPhotoUrl("projects/actions.jpg");
-  const webagentUrlPromise = getPhotoUrl("projects/webagent.jpg");
-  const chatbotUrlPromise = getPhotoUrl("projects/chatbot.jpg");
+  // About
+  const avatarUrlPromise = getPhotoUrl("avatar/profile-picture.jpg");
+  const cartoonUrlPromise = getPhotoUrl("avatar/cartoon-picture.jpg");
   const resumeUrlPromise = getPhotoUrl("Chengxiang-Wu-Resume-2024.pdf");
-  const paperUrlPromise = getPhotoUrl("projects/paper.jpg");
+
+  // Research
+
+  // Publications
+  const amis2023UrlPromise = getPhotoUrl("publications/amis-2023.png");
+
+  // Projects
   const multimeterUrlPromise = getPhotoUrl("projects/multimeter.jpg");
 
   const [
+    // About
     avatarUrl,
     cartoonUrl,
-    actionImageUrl,
     resumeUrl,
-    webagentUrl,
-    chatbotUrl,
-    paperUrl,
+    // Research
+    // Publications
+    amis2023Url,
+    // Projects
     multimeterUrl,
   ] = await Promise.all([
+    // About
     avatarUrlPromise,
     cartoonUrlPromise,
-    actionImageUrlPromise,
     resumeUrlPromise,
-    webagentUrlPromise,
-    chatbotUrlPromise,
-    paperUrlPromise,
+    // Research
+    // Publications
+    amis2023UrlPromise,
+    // Projects
     multimeterUrlPromise,
   ]);
 
   return (
     <Home
-      actionImageUrl={actionImageUrl}
+      // About
       avatarUrl={avatarUrl}
-      chatbotUrl={chatbotUrl}
       cartoonUrl={cartoonUrl}
-      paperUrl={paperUrl}
       resumeUrl={resumeUrl}
-      webagentUrl={webagentUrl}
+      // Research
+      // Publications
+      amis2023Url={amis2023Url}
+      // Projects
       multimeterUrl={multimeterUrl}
     />
   );
