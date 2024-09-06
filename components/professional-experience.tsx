@@ -1,5 +1,7 @@
 import { Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
 
+const linkClasses = "font-medium text-primary-600 hover:text-primary-800 transition-colors duration-300";
+
 const ProfessionalExperience = () => {
     return (
         <Card className="w-full h-full">
@@ -10,16 +12,48 @@ const ProfessionalExperience = () => {
             <CardBody>
                 <ul className="list-disc pl-5 mb-4">
                     <li>
-                        <strong>Visiting Researcher</strong> - Music Experience Design (MusED) Lab at NYU Shanghai (Jun 2024 - Aug 2024)
+                        <strong>Visiting Researcher</strong> - 
+                        <a 
+                            href="https://musedlab.org/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className={linkClasses}
+                        >
+                            {" "}Music Experience Design (MusED) Lab
+                        </a> at NYU Shanghai (Jun 2024 - Aug 2024)
                     </li>
                     <li>
-                        <strong>Software Engineer Intern</strong> - SoundBug (May 2023 - Aug 2023)
+                        <strong>Software Engineer Intern</strong> - 
+                        <a 
+                            href="https://www.soundbug.com/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className={linkClasses}
+                        >
+                            {" "}SoundBug
+                        </a> (May 2023 - Aug 2023)
                     </li>
                     <li>
-                        <strong>R&D Intern</strong> - MicroPort NaviBot (May 2022 - Aug 2022)
+                        <strong>R&D Intern</strong> - 
+                        <a 
+                            href="https://microport.com/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className={linkClasses}
+                        >
+                            {" "}MicroPort NaviBot
+                        </a> (May 2022 - Aug 2022)
                     </li>
                     <li>
-                        <strong>Student Researcher</strong> - Center for Assessment of Elementary Education at the Ministry of Education (Sep 2020 - Aug 2024)
+                        <strong>Student Researcher</strong> - 
+                        <a 
+                            href="https://cicabeq.bnu.edu.cn/fzx/index.htm" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className={linkClasses}
+                        >
+                            {" "}China Basic Education Quality Monitoring Collaborative Innovation Center
+                        </a> (Sep 2020 - Aug 2024)
                     </li>
                     <li>
                         <strong>Composer and Lyricist</strong>
