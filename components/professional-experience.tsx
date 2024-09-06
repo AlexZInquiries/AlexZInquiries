@@ -58,15 +58,31 @@ const ProfessionalExperience = () => {
                     <li>
                         <strong>Composer and Lyricist</strong>
                         <div className="mt-1">
-                            <p className="text-sm text-gray-600 dark:text-gray-400">• Shanghai Music Publishing House (Sep 2022 - May 2024)</p>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">• Zhejiang Education Publishing House (Sep 2020 - Aug 2024)</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                                • <a href="https://www.smph.cn/" target="_blank" rel="noopener noreferrer" className={linkClasses}>
+                                    Shanghai Music Publishing House
+                                </a>(Sep 2022 - May 2024)
+                            </p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                                • <a href="https://zjeph.com" target="_blank" rel="noopener noreferrer" className={linkClasses}>
+                                    Zhejiang Education Publishing House
+                                </a>(Sep 2020 - Aug 2024)
+                            </p>
                         </div>
                     </li>
                     <li>
                         <strong>Freelance Translator</strong>
                         <div className="mt-1">
-                            <p className="text-sm text-gray-600 dark:text-gray-400">• Shanghai Education Publishing House (Apr 2023 - Present)</p>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">• Shanghai Conservatory of Music Press (Jan 2018 - Jun 2018)</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                                • <a href="http://www.seph.com.cn/" target="_blank" rel="noopener noreferrer" className={linkClasses}>
+                                    Shanghai Educational Publishing House
+                                </a>(Apr 2023 - Present)
+                            </p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                                • <a href="https://shcmpress.com/" target="_blank" rel="noopener noreferrer" className={linkClasses}>
+                                    Shanghai Conservatory of Music Press
+                                </a>(Jan 2018 - Jun 2018)
+                            </p>
                         </div>
                     </li>
                 </ul>
