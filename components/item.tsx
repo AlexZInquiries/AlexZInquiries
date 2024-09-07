@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ItemProps {
 	imageUrl: string;
@@ -12,6 +14,7 @@ interface ItemProps {
 	imageHeight?: number;
 	imageClass: string;
 	onClick: () => void;
+	description: string; // Add this new prop
 }
 
 const Item = ({
@@ -26,39 +29,62 @@ const Item = ({
 	imageHeight,
 	imageClass,
 	onClick,
+	description,
 }: ItemProps) => {
+	const [isHovered, setIsHovered] = useState(false);
+
 	return (
-		<div className={`relative w-full h-full group ${containerStyles}`}>
-			{overlayStyles && <div className={`absolute ${overlayStyles}`} />}
+		<div
+			className={`relative w-full h-full group overflow-hidden ${containerStyles}`}
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}
+		>
 			<div className={`absolute ${imageStyles}`}>
 				<Image
 					alt={linkText}
-					className={imageClass}
+					className={`${imageClass} transition-transform duration-500 ${isHovered ? 'scale-110' : 'scale-100'}`}
 					src={imageUrl}
 					height={imageHeight}
 					width={imageWidth}
 				/>
 			</div>
-			<button
-				onClick={onClick}
-				className={`absolute transition-all w-10 h-10 md:w-[2.75rem] md:h-[2.75rem] duration-500 ease-in-out group-hover:w-40 p-2 rounded-full border-2 border-transparent ${btnStyles} ${btnHoverStyles}`}>
-				<div className="flex justify-center items-center">
-					<span className="text-sm md:text-medium text-nowrap hidden group-hover:block invisible group-hover:visible mr-1 animate-fade">
-						{linkText}
-					</span>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						fill="currentColor"
-						className="w-6 h-6">
-						<path
-							fillRule="evenodd"
-							d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
-							clipRule="evenodd"
-						/>
-					</svg>
-				</div>
-			</button>
+			<AnimatePresence>
+				{isHovered && (
+					<motion.div
+						initial={{ opacity: 0, y: "100%" }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: "100%" }}
+						transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+						className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/50 to-transparent backdrop-blur-sm"
+					>
+						<motion.h3
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.2, duration: 0.5 }}
+							className="text-2xl font-bold text-white mb-2"
+						>
+							{linkText}
+						</motion.h3>
+						<motion.p
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.3, duration: 0.5 }}
+							className="text-white text-base mb-4"
+						>
+							{description}
+						</motion.p>
+						<motion.button
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.4, duration: 0.5 }}
+							onClick={onClick}
+							className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${btnStyles} ${btnHoverStyles}`}
+						>
+							Learn More
+						</motion.button>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 };
