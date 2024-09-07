@@ -14,35 +14,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 }) => {
 	const renderProjectContent = () => {
 		switch (projectKey) {
-			case "multimeter":
-				return (
-					<div className="m-6">
-						<CardHeader className="flex gap-3">
-							<div className="flex flex-col">
-								<p className="text-md">Project</p>
-								<p className="text-2xl font-bold">MultiMeter</p>
-							</div>
-						</CardHeader>
-						<CardBody>
-							<p className="text-lg mb-4">
-								The MultiMeter project is an innovative approach to measuring
-								multiple electrical properties simultaneously. It combines
-								advanced sensor technology with user-friendly interface design
-								to create a versatile tool for both professionals and hobbyists.
-							</p>
-							<h3 className="text-xl font-semibold mb-2">Key Features:</h3>
-							<ul className="list-disc list-inside space-y-2">
-								<li>
-									Simultaneous measurement of voltage, current, and resistance
-								</li>
-								<li>High-precision sensors for accurate readings</li>
-								<li>Intuitive digital interface with color display</li>
-								<li>Data logging and export capabilities</li>
-								<li>Compact and durable design for field use</li>
-							</ul>
-						</CardBody>
-					</div>
-				);
+			// Research
+			// Publications
 			case "amis2023":
 				return (
 					<div className="m-6">
@@ -83,6 +56,36 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 						</CardBody>
 					</div>
 				);
+			// Projects
+			case "multimeter":
+				return (
+					<div className="m-6">
+						<CardHeader className="flex gap-3">
+							<div className="flex flex-col">
+								<p className="text-md">Project</p>
+								<p className="text-2xl font-bold">MultiMeter</p>
+							</div>
+						</CardHeader>
+						<CardBody>
+							<p className="text-lg mb-4">
+								The MultiMeter project is an innovative approach to measuring
+								multiple electrical properties simultaneously. It combines
+								advanced sensor technology with user-friendly interface design
+								to create a versatile tool for both professionals and hobbyists.
+							</p>
+							<h3 className="text-xl font-semibold mb-2">Key Features:</h3>
+							<ul className="list-disc list-inside space-y-2">
+								<li>
+									Simultaneous measurement of voltage, current, and resistance
+								</li>
+								<li>High-precision sensors for accurate readings</li>
+								<li>Intuitive digital interface with color display</li>
+								<li>Data logging and export capabilities</li>
+								<li>Compact and durable design for field use</li>
+							</ul>
+						</CardBody>
+					</div>
+				);
 			default:
 				return <p>Project details not available.</p>;
 		}
@@ -94,7 +97,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 			<CardBody>
 				<Button
 					onClick={onBack}
-					className="flex mt-4 bg-blue-500 hover:bg-blue-600 text-white w-2/3 mx-auto justify-center">
+					className="flex mt-4 bg-blue-500 hover:bg-blue-600 text-white max-w-[200px] mx-auto justify-center rounded-full">
 					Back to {tabSelected}
 				</Button>
 			</CardBody>
