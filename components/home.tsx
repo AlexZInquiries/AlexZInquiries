@@ -28,6 +28,8 @@ interface HomeProps {
 	amis2023Url: string;
 	// Projects
 	multimeterUrl: string;
+
+	mediaUrls: Record<string, string[]>;
 }
 
 const Home = ({
@@ -40,6 +42,7 @@ const Home = ({
 	amis2023Url,
 	// Projects
 	multimeterUrl,
+	mediaUrls,
 }: HomeProps) => {
 	const width = useWindowWidth();
 	const [tabSelected, setTabSelected] = useState("about");
@@ -88,7 +91,7 @@ const Home = ({
 				<ProjectDetails
 					projectKey={selectedProject}
 					onBack={handleBackToProjects}
-					tabSelected={tabSelected}
+					mediaUrls={mediaUrls}
 				/>
 			) : (
 				<Responsive

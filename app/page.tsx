@@ -15,6 +15,15 @@ export default async function App() {
   // Projects
   const multimeterUrlPromise = getPhotoUrl("projects/multimeter.jpg");
 
+  const mediaUrls: Record<string, string[]> = {
+    // Research
+    // Publications
+    // Projects
+    multimeter: [
+      await getPhotoUrl("projects/multimeter.gif")
+    ],
+};
+
   const [
     // About
     avatarUrl,
@@ -48,6 +57,7 @@ export default async function App() {
       amis2023Url={amis2023Url}
       // Projects
       multimeterUrl={multimeterUrl}
+      mediaUrls={mediaUrls}
     />
   );
 }
