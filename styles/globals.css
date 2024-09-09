@@ -43,3 +43,23 @@ iframe.notion-asset-object-fit {
   border-radius: 1rem;
   background-color: transparent;
 }
+
+/* Ensure a consistent Web interface style for Chrome */
+html {
+  overflow-y: scroll;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: none;
+}
