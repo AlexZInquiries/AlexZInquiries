@@ -25,7 +25,6 @@ interface HomeProps {
 	resumeUrl: string;
 	// Research
 	// Publications
-	amis2023Url: string;
 	// Projects
 	multimeterUrl: string;
 
@@ -39,7 +38,6 @@ const Home = ({
 	resumeUrl,
 	// Research
 	// Publications
-	amis2023Url,
 	// Projects
 	multimeterUrl,
 	mediaUrls,
@@ -180,25 +178,6 @@ const Home = ({
 									);
 								// Research
 								// Publications
-								case "amis2023":
-									return (
-										<div key={key} className={commonClasses}>
-												<Item
-													imageUrl={amis2023Url}
-													linkText="AMIS 2023"
-													containerStyles="bg-cardPurple dark:bg-darkBg"
-													imageStyles="w-full h-full object-cover"
-													overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
-													btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
-													btnHoverStyles="hover:bg-default-100 dark:border-knight"
-													imageWidth={795}
-													imageHeight={515}
-													imageClass="w-full h-full object-cover"
-													onClick={() => handleProjectClick("amis2023")}
-													description="Your 20-word description goes here. This text will appear when the user hovers over the item, providing additional context or information."
-												/>
-										</div>
-									);
 								// Projects
 								case "multimeter":
 									return (

@@ -19,8 +19,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 		switch (key) {
 			// Research
 			// Publications
-			case "amis2023":
-				return "AMIS 2023";
 			// Projects
 			case "multimeter":
 				return "MultiMeter";
@@ -33,25 +31,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 		switch (projectKey) {
 		// Research
 		// Publications
-		case "amis2023":
-			return (
-			<div className="space-y-6">
-				<p className="text-lg">
-				The AMIS 2023 (Advanced Music Information Systems) project
-				focuses on developing cutting-edge algorithms for music analysis
-				and recommendation. This research aims to enhance the way we
-				interact with and discover music in the digital age.
-				</p>
-				<h3 className="text-xl font-semibold">Research Highlights:</h3>
-				<ul className="list-disc list-inside space-y-2">
-				<li>Novel machine learning techniques for music genre classification</li>
-				<li>Improved algorithms for music similarity detection</li>
-				<li>User behavior analysis for personalized music recommendations</li>
-				<li>Integration of cultural and contextual factors in music analysis</li>
-				<li>Exploration of cross-modal approaches combining audio and visual data</li>
-				</ul>
-			</div>
-			);
 		// Projects
 		case "multimeter":
 			return (
@@ -91,21 +70,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 		default:
 			return null;
 		}
-	};
-
-	const buttonVariants = {
-		initial: { width: "200px" },
-		hover: { width: "220px", transition: { duration: 0.3, ease: "easeInOut" } }
-	};
-
-	const backgroundVariants = {
-		initial: { x: "-100%" },
-		hover: { x: 0, transition: { duration: 0.3, ease: "easeInOut" } }
-	};
-
-	const textVariants = {
-		initial: { y: 0 },
-		hover: { y: "-100%", transition: { duration: 0.3, ease: "easeInOut" } }
 	};
 
 	return (
