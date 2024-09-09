@@ -31,7 +31,7 @@ export const layouts: Record<string, Layouts> = {
 
 	publications: {
 		lg: [
-			{ i: "publications", x: 0, y: 0, w: 4, h: 1.2 },
+			{ i: "publications", x: 0, y: 0, w: 4, h: 1.35 },
 			{ i: "translations", x: 0, y: 2, w: 4, h: 0.9 },
 			{ i: "invitedTalks", x: 0, y: 4, w: 4, h: 1.2 },
 			{ i: "mediaProduction", x: 0, y: 6, w: 4, h: 0.9 },
