@@ -28,6 +28,7 @@ interface HomeProps {
 	// Publications
 	amis2023Url: string;
 	amis2024Url: string;
+	aimc2024Url: string;  // Add this line
 	// Projects
 	multimeterUrl: string;
 
@@ -43,6 +44,7 @@ const Home = ({
 	// Publications
 	amis2023Url,
 	amis2024Url,
+	aimc2024Url,
 	// Projects
 	multimeterUrl,
 	mediaUrls,
@@ -186,7 +188,7 @@ const Home = ({
 								case "publications":
 									return (
 										<div key={key} className={commonClasses}>
-											<Publications />
+											<Publications aimc2024Url={aimc2024Url} />
 										</div>
 									);
 								case "translations":
