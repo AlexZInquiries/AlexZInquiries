@@ -14,6 +14,7 @@ import ProfessionalExperience from "@/components/professional-experience";
 import Education from "@/components/education";
 import IconCloud from "@/components/icon-cloud";
 import ProjectDetails from "@/components/project-details";
+import { Publications, Translations, InvitedTalks, MediaProduction } from "@/components/publications";
 import { layouts, selectedCard } from "@/config/layout";
 import { icons } from "@/config/icons";
 import useWindowWidth from "@/hooks/useWindowWidth";
@@ -178,6 +179,30 @@ const Home = ({
 									);
 								// Research
 								// Publications
+								case "publications":
+									return (
+										<div key={key} className={commonClasses}>
+											<Publications />
+										</div>
+									);
+								case "translations":
+									return (
+										<div key={key} className={commonClasses}>
+											<Translations />
+										</div>
+									);
+								case "invitedTalks":
+									return (
+										<div key={key} className={commonClasses}>
+											<InvitedTalks />
+										</div>
+									);
+								case "mediaProduction":
+									return (
+										<div key={key} className={commonClasses}>
+											<MediaProduction />
+										</div>
+									);
 								// Projects
 								case "multimeter":
 									return (
