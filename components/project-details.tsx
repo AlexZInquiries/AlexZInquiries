@@ -85,6 +85,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 					<li>Correlation Meter for phase issue detection</li>
 					<li>High-resolution Spectrogram Analyzer</li>
 				</ul>
+				<div className="h-6"> </div> { /* This adds consistent spacing */ }
 				</div>
 			);
 		default:
@@ -140,23 +141,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 					transition={{ delay: 0.2, duration: 0.5 }}
 				>
 					{renderProjectContent()}
-					<motion.div
-						variants={buttonVariants}
-						initial="initial"
-						whileHover="hover"
-						className="mt-6 relative h-14 overflow-hidden cursor-pointer"
-					>
-						<motion.div
-							variants={backgroundVariants}
-							className="absolute inset-0 bg-blue-600"
-						/>
-						<div className="absolute inset-0 flex items-center justify-center text-white font-semibold overflow-hidden">
-							<motion.div variants={textVariants} className="flex flex-col items-center">
-								<span>Learn More</span>
-								<span>Explore</span>
-							</motion.div>
-						</div>
-					</motion.div>
 				</motion.div>
 				</CardBody>
 			</Card>
