@@ -44,15 +44,15 @@ const Translations = () => {
     );
 };
 
-const InvitedTalks = () => {
+const InvitedTalks = ({ amis2023Url, amis2024Url }: { amis2023Url: string, amis2024Url: string }) => {
     return (
         <div className="w-full h-full">
         <PublicationCard title="Invited Talks and Presentations">
             <li>
-            May 2024. The 53rd Annual Meeting of the American Musical Instrument Society (AMIS). <Link href="#" className="text-primary">&quot;Music, Instruments, and Dance in Tenth-Century Shu: Echoes of the Great Tang&quot;.</Link> (Poster Presentation)
+            May 2024. The 53rd Annual Meeting of the American Musical Instrument Society (AMIS). <Link href={amis2024Url} target="_blank" rel="noopener noreferrer" className="text-primary">&quot;Music, Instruments, and Dance in Tenth-Century Shu: Echoes of the Great Tang&quot;.</Link> (Poster Presentation)
             </li>
             <li>
-            June 2023. The 52nd Annual Meeting of the American Musical Instrument Society (AMIS). <Link href="#" className="text-primary">&quot;Kangxi, Father Amiot, and &apos;Improvements&apos; to Ritual Instruments in Eighteenth-Century China&quot;.</Link> (Paper Presentation)
+            June 2023. The 52nd Annual Meeting of the American Musical Instrument Society (AMIS). <Link href={amis2023Url} target="_blank" rel="noopener noreferrer" className="text-primary">&quot;Kangxi, Father Amiot, and &apos;Improvements&apos; to Ritual Instruments in Eighteenth-Century China&quot;.</Link> (Paper Presentation)
             </li>
         </PublicationCard>
         </div>

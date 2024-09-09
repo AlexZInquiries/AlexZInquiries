@@ -26,6 +26,8 @@ interface HomeProps {
 	resumeUrl: string;
 	// Research
 	// Publications
+	amis2023Url: string;
+	amis2024Url: string;
 	// Projects
 	multimeterUrl: string;
 
@@ -39,6 +41,8 @@ const Home = ({
 	resumeUrl,
 	// Research
 	// Publications
+	amis2023Url,
+	amis2024Url,
 	// Projects
 	multimeterUrl,
 	mediaUrls,
@@ -194,7 +198,7 @@ const Home = ({
 								case "invitedTalks":
 									return (
 										<div key={key} className={commonClasses}>
-											<InvitedTalks />
+											<InvitedTalks amis2023Url={amis2023Url} amis2024Url={amis2024Url} />
 										</div>
 									);
 								case "mediaProduction":
