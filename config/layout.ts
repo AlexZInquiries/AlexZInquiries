@@ -32,12 +32,12 @@ export const layouts: Record<string, Layouts> = {
 
 	publications: {
 		lg: [
-			{ i: "journalArticles", x: 0, y: 0, w: 4, h: 1 },
-			{ i: "performances", x: 0, y: 1, w: 4, h: 1 },
-			{ i: "invitedTalks", x: 0, y: 2, w: 4, h: 1.5 },
-			{ i: "books", x: 0, y: 3.5, w: 4, h: 1 },
-			{ i: "translations", x: 0, y: 4.5, w: 4, h: 1 },
-			{ i: "mediaProduction", x: 0, y: 5.5, w: 4, h: 1 },
+			{ i: "journalArticles", x: 0, y: 0, w: 4, h: 0.85 },
+			{ i: "performances", x: 0, y: 1, w: 4, h: 0.85 },
+			{ i: "invitedTalks", x: 0, y: 2, w: 4, h: 1.15 },
+			{ i: "books", x: 0, y: 3.5, w: 4, h: 0.7 },
+			{ i: "translations", x: 0, y: 4.5, w: 4, h: 0.85 },
+			{ i: "mediaProduction", x: 0, y: 5.5, w: 4, h: 0.7 },
 		],
 		md: [
 
