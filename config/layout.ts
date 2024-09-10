@@ -32,10 +32,12 @@ export const layouts: Record<string, Layouts> = {
 
 	publications: {
 		lg: [
-			{ i: "publications", x: 0, y: 0, w: 4, h: 1.35 },
-			{ i: "translations", x: 0, y: 2, w: 4, h: 0.9 },
-			{ i: "invitedTalks", x: 0, y: 4, w: 4, h: 1.2 },
-			{ i: "mediaProduction", x: 0, y: 6, w: 4, h: 0.9 },
+			{ i: "journalArticles", x: 0, y: 0, w: 4, h: 1 },
+			{ i: "performances", x: 0, y: 1, w: 4, h: 1 },
+			{ i: "invitedTalks", x: 0, y: 2, w: 4, h: 1.5 },
+			{ i: "books", x: 0, y: 3.5, w: 4, h: 1 },
+			{ i: "translations", x: 0, y: 4.5, w: 4, h: 1 },
+			{ i: "mediaProduction", x: 0, y: 5.5, w: 4, h: 1 },
 		],
 		md: [
 
@@ -83,9 +85,11 @@ export const selectedCard: Record<string, Record<string, boolean>> = {
 
 	},
 	publications: {
-		publications: true,
-		translations: true,
+		journalArticles: true,
+		performances: true,
 		invitedTalks: true,
+		books: true,
+		translations: true,
 		mediaProduction: true,
 	},
 	projects: {
