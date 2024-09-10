@@ -14,7 +14,7 @@ import IndustryExperience from "@/components/industry-experience";
 import CreativeExperience from "@/components/creative-experience";
 import IconCloud from "@/components/icon-cloud";
 import ProjectDetails from "@/components/project-details";
-import { Publications, Translations, InvitedTalks, MediaProduction } from "@/components/publications";
+import { JournalArticles, Performances, InvitedTalks, Books, Translations, MediaProduction } from "@/components/publications";
 import { layouts, selectedCard } from "@/config/layout";
 import { icons } from "@/config/icons";
 import useWindowWidth from "@/hooks/useWindowWidth";
@@ -191,22 +191,34 @@ const Home = ({
 									);
 								// Research
 								// Publications
-								case "publications":
+								case "journalArticles":
 									return (
 										<div key={key} className={commonClasses}>
-											<Publications aimc2024Url={aimc2024Url} />
+											<JournalArticles />
 										</div>
 									);
-								case "translations":
+								case "performances":
 									return (
 										<div key={key} className={commonClasses}>
-											<Translations />
+											<Performances aimc2024Url={aimc2024Url} />
 										</div>
 									);
 								case "invitedTalks":
 									return (
 										<div key={key} className={commonClasses}>
 											<InvitedTalks amis2023Url={amis2023Url} amis2024Url={amis2024Url} />
+										</div>
+									);
+								case "books":
+									return (
+										<div key={key} className={commonClasses}>
+											<Books />
+										</div>
+									);
+								case "translations":
+									return (
+										<div key={key} className={commonClasses}>
+											<Translations />
 										</div>
 									);
 								case "mediaProduction":
