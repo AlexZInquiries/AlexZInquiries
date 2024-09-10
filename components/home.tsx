@@ -4,14 +4,14 @@ import { Tab, Tabs } from "@nextui-org/react";
 import { Responsive } from "react-grid-layout";
 import { useState } from "react";
 
-import { cn } from "@/lib/utils";
 import AvatarTransition from "@/components/avatar";
 import { DockDemo } from "@/components/dock-demo";
 import { ThemeSwitch } from "@/components/theme-switch";
 import AnimatedEmoji from "@/components/animated-emoji";
 import Item from "@/components/item";
-import ProfessionalExperience from "@/components/professional-experience";
 import Education from "@/components/education";
+import IndustryExperience from "@/components/industry-experience";
+import CreativeExperience from "@/components/creative-experience";
 import IconCloud from "@/components/icon-cloud";
 import ProjectDetails from "@/components/project-details";
 import { Publications, Translations, InvitedTalks, MediaProduction } from "@/components/publications";
@@ -28,7 +28,7 @@ interface HomeProps {
 	// Publications
 	amis2023Url: string;
 	amis2024Url: string;
-	aimc2024Url: string;  // Add this line
+	aimc2024Url: string;
 	// Projects
 	multimeterUrl: string;
 
@@ -138,7 +138,7 @@ const Home = ({
 												</b>
 												,
 												<b>
-													<i> human-centered UX design</i>
+													<i> human-centered user experience design</i>
 												</b>
 												, and
 												<b>
@@ -177,10 +177,16 @@ const Home = ({
 											<Education />
 										</div>
 									);
-								case "professionalExperience":
+								case "industryExperience":
 									return (
 										<div key={key} className={commonClasses}>
-											<ProfessionalExperience />
+											<IndustryExperience />
+										</div>
+									);
+								case "creativeExperience":
+									return (
+										<div key={key} className={commonClasses}>
+											<CreativeExperience />
 										</div>
 									);
 								// Research
