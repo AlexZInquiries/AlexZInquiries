@@ -14,7 +14,7 @@ const CreativeExperience = () => {
                         className={linkClasses}
                     >
                         China Basic Education Quality Monitoring Collaborative Innovation Center
-                    </a> (Sep 2020 - Aug 2024)
+                    </a>(Sep 2020 - Aug 2024)
                 </li>
                 <li>
                     <strong>Composer and Lyricist</strong>
@@ -22,12 +22,12 @@ const CreativeExperience = () => {
                         <p className="text-sm text-gray-600 dark:text-gray-400">
                             • <a href="https://www.smph.cn/" target="_blank" rel="noopener noreferrer" className={linkClasses}>
                                 Shanghai Music Publishing House
-                            </a> (Sep 2022 - May 2024)
+                            </a>(Sep 2022 - May 2024)
                         </p>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
                             • <a href="https://zjeph.com" target="_blank" rel="noopener noreferrer" className={linkClasses}>
                                 Zhejiang Education Publishing House
-                            </a> (Sep 2020 - Aug 2024)
+                            </a>(Sep 2020 - Aug 2024)
                         </p>
                     </div>
                 </li>
@@ -37,12 +37,12 @@ const CreativeExperience = () => {
                         <p className="text-sm text-gray-600 dark:text-gray-400">
                             • <a href="http://www.seph.com.cn/" target="_blank" rel="noopener noreferrer" className={linkClasses}>
                                 Shanghai Educational Publishing House
-                            </a> (Apr 2023 - Present)
+                            </a>(Apr 2023 - Present)
                         </p>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
                             • <a href="https://shcmpress.com/" target="_blank" rel="noopener noreferrer" className={linkClasses}>
                                 Shanghai Conservatory of Music Press
-                            </a> (Jan 2018 - Jun 2018)
+                            </a>(Jan 2018 - Jun 2018)
                         </p>
                     </div>
                 </li>

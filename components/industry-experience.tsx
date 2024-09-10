@@ -14,7 +14,7 @@ const IndustryExperience = () => {
                         className={linkClasses}
                     >
                         SoundBug
-                    </a> (May 2023 - Aug 2023)
+                    </a>(May 2023 - Aug 2023)
                 </li>
                 <li>
                     <strong>R&D Intern</strong> - 
@@ -25,7 +25,7 @@ const IndustryExperience = () => {
                         className={linkClasses}
                     >
                         MicroPort NaviBot
-                    </a> (May 2022 - Aug 2022)
+                    </a>(May 2022 - Aug 2022)
                 </li>
             </ul>
         </div>
