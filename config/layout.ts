@@ -5,9 +5,9 @@ export const layouts: Record<string, Layouts> = {
 	about: {
 		lg: [
 			{ i: "avatar", x: 0, y: 0, w: 2, h: 2 },
-			{ i: "education", x: 2, y: 0, w: 2, h: 1.4 },
+			{ i: "education", x: 2, y: 0, w: 2, h: 1.3 },
 			{ i: "industryExperience", x: 2, y: 4, w: 2, h: 0.9 },
-			{ i: "creativeExperience", x: 2, y: 7, w: 2, h: 1.7 },
+			{ i: "creativeExperience", x: 2, y: 7, w: 2, h: 1.8 },
 			{ i: "themeSwitch", x: 0, y: 3, w: 1, h: 2 },
 			{ i: "iconCloud", x: 1, y: 3, w: 1, h: 2 },
 
