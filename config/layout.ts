@@ -4,11 +4,12 @@ export const layouts: Record<string, Layouts> = {
 
 	about: {
 		lg: [
-			{ i: "avatar", x: 0, y: 0, w: 2, h: 2 }, // Fixed
-			{ i: "education", x: 2, y: 0, w: 2, h: 1.5 }, // Fixed
-			{ i: "professionalExperience", x: 2, y: 1.5, w: 2, h: 2.5 }, // Fixed
-			{ i: "themeSwitch", x: 0, y: 3, w: 1, h: 2 }, // Fixed
-			{ i: "iconCloud", x: 1, y: 3, w: 1, h: 2 }, // Fixed
+			{ i: "avatar", x: 0, y: 0, w: 2, h: 2 },
+			{ i: "education", x: 2, y: 0, w: 2, h: 1.4 },
+			{ i: "industryExperience", x: 2, y: 4, w: 2, h: 0.9 },
+			{ i: "creativeExperience", x: 2, y: 7, w: 2, h: 1.7 },
+			{ i: "themeSwitch", x: 0, y: 3, w: 1, h: 2 },
+			{ i: "iconCloud", x: 1, y: 3, w: 1, h: 2 },
 
 		],
 		md: [
@@ -75,7 +76,8 @@ export const selectedCard: Record<string, Record<string, boolean>> = {
 		themeSwitch: true,
 		iconCloud: true,
 		education: true,
-		professionalExperience: true,
+		industryExperience: true,
+		creativeExperience: true,
 	},
 	research: {
 
