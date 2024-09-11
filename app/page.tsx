@@ -17,6 +17,7 @@ export default async function App() {
 
   // Projects
   const multimeterUrlPromise = getPhotoUrl("projects/multimeter.jpg");
+  const improvisationTutorUrlPromise = getPhotoUrl("projects/placeholder.png"); // To be fixed
 
   const mediaUrls: Record<string, string[]> = {
     // Research
@@ -40,6 +41,7 @@ export default async function App() {
     aimc2024Url,
     // Projects
     multimeterUrl,
+    improvisationTutorUrl,
   ] = await Promise.all([
     // About
     avatarUrlPromise,
@@ -53,7 +55,14 @@ export default async function App() {
     aimc2024UrlPromise,
     // Projects
     multimeterUrlPromise,
+    improvisationTutorUrlPromise,
   ]);
+
+  const projectTags = {
+    multimeter: ["VST Development", "UI/UX Design"],
+    improvisationTutor: ["Web Development", "UI/UX Design"],
+    // Add tags for other projects
+  };
 
   return (
     <Home
@@ -69,7 +78,9 @@ export default async function App() {
       aimc2024Url={aimc2024Url}
       // Projects
       multimeterUrl={multimeterUrl}
+      improvisationTutorUrl={improvisationTutorUrl}
       mediaUrls={mediaUrls}
+      projectTags={projectTags}
     />
   );
 }

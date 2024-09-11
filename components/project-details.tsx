@@ -24,6 +24,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 				return "MultiMeter";
 			case "ethnomusicology":
 				return "Ethnomusicology Research on Ancient Chinese Musical Instruments";
+			case "improvisationTutor":
+				return "Improvisation Tutor";
 			default:
 				return "Error";
 		}
@@ -97,6 +99,37 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 					<li>High-resolution Spectrogram Analyzer</li>
 				</ul>
 				<div className="h-6"> </div> { /* This adds consistent spacing */ }
+				</div>
+			);
+		case "improvisationTutor":
+			return (
+				<div className="space-y-6">
+					<p className="text-lg">
+						The Improvisation Tutor is an innovative AI-powered application designed to help musicians of all levels improve their improvisation skills. By leveraging machine learning algorithms and real-time audio processing, it provides personalized feedback and exercises tailored to each user's skill level and learning goals.
+					</p>
+					{mediaUrls[projectKey] && (
+						<div className="w-full flex flex-wrap justify-center gap-4">
+							{mediaUrls[projectKey].map((url, index) => (
+								<Image
+									key={index}
+									src={url}
+									alt={`${projectKey} media ${index + 1}`}
+									width={500}
+									height={300}
+									className="rounded-lg"
+								/>
+							))}
+						</div>
+					)}
+					<h3 className="text-xl font-semibold">Key Features:</h3>
+					<ul className="list-disc list-inside space-y-2">
+						<li>Real-time audio analysis and feedback</li>
+						<li>Personalized exercise generation based on user's skill level</li>
+						<li>Extensive library of backing tracks and chord progressions</li>
+						<li>Progress tracking and performance analytics</li>
+						<li>Integration with popular Digital Audio Workstations (DAWs)</li>
+					</ul>
+					<div className="h-6"> </div>
 				</div>
 			);
 		default:
