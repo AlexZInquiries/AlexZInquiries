@@ -8,6 +8,7 @@ export default async function App() {
   const resumeUrlPromise = getPhotoUrl("Chengxiang-Wu-Resume-2024.pdf");
 
   // Research
+  const ethnomusicologyUrlPromise = getPhotoUrl("research/ethnomusicology.jpeg");
 
   // Publications
   const amis2023UrlPromise = getPhotoUrl("publications/amis-2023-presentation.pdf");
@@ -32,6 +33,7 @@ export default async function App() {
     cartoonUrl,
     resumeUrl,
     // Research
+    ethnomusicologyUrl,
     // Publications
     amis2023Url,
     amis2024Url,
@@ -44,6 +46,7 @@ export default async function App() {
     cartoonUrlPromise,
     resumeUrlPromise,
     // Research
+    ethnomusicologyUrlPromise,
     // Publications
     amis2023UrlPromise,
     amis2024UrlPromise,
@@ -59,6 +62,7 @@ export default async function App() {
       cartoonUrl={cartoonUrl}
       resumeUrl={resumeUrl}
       // Research
+      ethnomusicologyUrl={ethnomusicologyUrl}
       // Publications
       amis2023Url={amis2023Url}
       amis2024Url={amis2024Url}

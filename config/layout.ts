@@ -27,7 +27,13 @@ export const layouts: Record<string, Layouts> = {
 	},
 
 	research: {
-
+		lg: [
+			{ i: "ethnomusicology", x: 0, y: 0, w: 2, h: 2 },
+		],
+		md: [],
+		sm: [],
+		xs: [],
+		xxs: [],
 	},
 
 	publications: {
@@ -82,7 +88,7 @@ export const selectedCard: Record<string, Record<string, boolean>> = {
 		creativeExperience: true,
 	},
 	research: {
-
+		ethnomusicology: true,
 	},
 	publications: {
 		journalArticles: true,

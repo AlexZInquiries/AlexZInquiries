@@ -25,6 +25,7 @@ interface HomeProps {
 	cartoonUrl: string;
 	resumeUrl: string;
 	// Research
+	ethnomusicologyUrl: string;
 	// Publications
 	amis2023Url: string;
 	amis2024Url: string;
@@ -41,6 +42,7 @@ const Home = ({
 	cartoonUrl,
 	resumeUrl,
 	// Research
+	ethnomusicologyUrl,
 	// Publications
 	amis2023Url,
 	amis2024Url,
@@ -190,6 +192,25 @@ const Home = ({
 										</div>
 									);
 								// Research
+								case "ethnomusicology":
+									return (
+										<div key={key} className={commonClasses}>
+											<Item
+												imageUrl={ethnomusicologyUrl}
+												linkText="Ethnomusicology Research on Ancient Chinese Musical Instruments"
+												containerStyles="bg-cardBlue dark:bg-darkBg"
+												imageStyles="w-full h-full object-cover"
+												overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
+												btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
+												btnHoverStyles="hover:bg-default-100 dark:border-knight"
+												imageWidth={795}
+												imageHeight={515}
+												imageClass="w-full h-full object-cover"
+												onClick={() => handleProjectClick("ethnomusicology")}
+												description="Exploring musical, cultural, and historical significance of Chinese musical instruments from the Tang, Ming, and Qing dynasties."
+											/>
+										</div>
+									);
 								// Publications
 								case "journalArticles":
 									return (

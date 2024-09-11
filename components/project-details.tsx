@@ -30,6 +30,36 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 	const renderProjectContent = () => {
 		switch (projectKey) {
 		// Research
+		case "ethnomusicology":
+			return (
+				<div className="space-y-6">
+					<p className="text-lg">
+						This research explores the intersection of music, culture, and technology in ethnomusicological studies. It focuses on how digital tools and methodologies can enhance our understanding of musical traditions and practices across different cultures.
+					</p>
+					{mediaUrls[projectKey] && (
+						<div className="w-full flex flex-wrap justify-center gap-4">
+							{mediaUrls[projectKey].map((url, index) => (
+								<Image
+									key={index}
+									src={url}
+									alt={`${projectKey} media ${index + 1}`}
+									width={500}
+									height={300}
+									className="rounded-lg"
+								/>
+							))}
+						</div>
+					)}
+					<h3 className="text-xl font-semibold">Key Areas of Focus:</h3>
+					<ul className="list-disc list-inside space-y-2">
+						<li>Digital ethnography in music research</li>
+						<li>Computational analysis of musical patterns across cultures</li>
+						<li>Preservation and digitization of traditional music</li>
+						<li>Impact of technology on musical practices and transmission</li>
+					</ul>
+					<div className="h-6"> </div>
+				</div>
+			);
 		// Publications
 		// Projects
 		case "multimeter":
