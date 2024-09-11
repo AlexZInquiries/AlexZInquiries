@@ -28,13 +28,13 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, onFilterChange }) => {
         {tags.map((tag) => (
             <motion.button
             key={tag.name}
-            onClick={() => toggleTag(tag.name)}
             className={`px-3 py-1 rounded-full text-sm font-semibold transition-colors ${
                 selectedTags.includes(tag.name) ? 'text-white' : 'text-gray-700'
             }`}
             style={{ backgroundColor: selectedTags.includes(tag.name) ? tag.color : '#e0e0e0' }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => toggleTag(tag.name)}
             >
             {tag.name}
             </motion.button>
