@@ -105,7 +105,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 			return (
 				<div className="space-y-6">
 					<p className="text-lg">
-						The Improvisation Tutor is an innovative AI-powered application designed to help musicians of all levels improve their improvisation skills. By leveraging machine learning algorithms and real-time audio processing, it provides personalized feedback and exercises tailored to each user's skill level and learning goals.
+						The Improvisation Tutor is an innovative AI-powered application designed to help musicians of all levels improve their improvisation skills. By leveraging machine learning algorithms and real-time audio processing, it provides personalized feedback and exercises tailored to each users skill level and learning goals.
 					</p>
 					{mediaUrls[projectKey] && (
 						<div className="w-full flex flex-wrap justify-center gap-4">
@@ -117,7 +117,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 									width={500}
 									height={300}
 									className="rounded-lg"
-								/>
+									/>
 							))}
 						</div>
 					)}
