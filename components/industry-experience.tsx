@@ -8,10 +8,10 @@ const IndustryExperience = () => {
                 <li>
                     <strong>Software Engineer Intern</strong> - 
                     <a 
+                        className={linkClasses} 
                         href="https://www.soundbug.com/" 
-                        target="_blank" 
                         rel="noopener noreferrer" 
-                        className={linkClasses}
+                        target="_blank"
                     >
                         SoundBug
                     </a>(May 2023 - Aug 2023)
@@ -19,10 +19,10 @@ const IndustryExperience = () => {
                 <li>
                     <strong>R&D Intern</strong> - 
                     <a 
+                        className={linkClasses} 
                         href="https://microport.com/" 
-                        target="_blank" 
                         rel="noopener noreferrer" 
-                        className={linkClasses}
+                        target="_blank"
                     >
                         MicroPort NaviBot
                     </a>(May 2022 - Aug 2022)

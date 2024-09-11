@@ -8,10 +8,10 @@ const CreativeExperience = () => {
                 <li>
                     <strong>Student Researcher</strong> - 
                     <a 
+                        className={linkClasses} 
                         href="https://cicabeq.bnu.edu.cn/fzx/index.htm" 
-                        target="_blank" 
                         rel="noopener noreferrer" 
-                        className={linkClasses}
+                        target="_blank"
                     >
                         China Basic Education Quality Monitoring Collaborative Innovation Center
                     </a>(Sep 2020 - Aug 2024)
@@ -20,12 +20,12 @@ const CreativeExperience = () => {
                     <strong>Composer and Lyricist</strong>
                     <div className="mt-1">
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            • <a href="https://www.smph.cn/" target="_blank" rel="noopener noreferrer" className={linkClasses}>
+                            • <a className={linkClasses} href="https://www.smph.cn/" rel="noopener noreferrer" target="_blank">
                                 Shanghai Music Publishing House
                             </a>(Sep 2022 - May 2024)
                         </p>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            • <a href="https://zjeph.com" target="_blank" rel="noopener noreferrer" className={linkClasses}>
+                            • <a className={linkClasses} href="https://zjeph.com" rel="noopener noreferrer" target="_blank">
                                 Zhejiang Education Publishing House
                             </a>(Sep 2020 - Aug 2024)
                         </p>
@@ -35,12 +35,12 @@ const CreativeExperience = () => {
                     <strong>Freelance Translator</strong>
                     <div className="mt-1">
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            • <a href="http://www.seph.com.cn/" target="_blank" rel="noopener noreferrer" className={linkClasses}>
+                            • <a className={linkClasses} href="http://www.seph.com.cn/" rel="noopener noreferrer" target="_blank">
                                 Shanghai Educational Publishing House
                             </a>(Apr 2023 - Present)
                         </p>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            • <a href="https://shcmpress.com/" target="_blank" rel="noopener noreferrer" className={linkClasses}>
+                            • <a className={linkClasses} href="https://shcmpress.com/" rel="noopener noreferrer" target="_blank">
                                 Shanghai Conservatory of Music Press
                             </a>(Jan 2018 - Jun 2018)
                         </p>
