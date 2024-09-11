@@ -22,6 +22,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 			// Projects
 			case "multimeter":
 				return "MultiMeter";
+			case "ethnomusicology":
+				return "Ethnomusicology Research on Ancient Chinese Musical Instruments";
 			default:
 				return "Error";
 		}
