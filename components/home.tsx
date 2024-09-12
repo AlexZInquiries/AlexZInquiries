@@ -3,7 +3,7 @@
 import { Tab, Tabs } from "@nextui-org/react";
 import { Responsive } from "react-grid-layout";
 import { useState } from "react";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 import AvatarTransition from "@/components/avatar";
 import { DockDemo } from "@/components/dock-demo";
@@ -15,7 +15,14 @@ import IndustryExperience from "@/components/industry-experience";
 import CreativeExperience from "@/components/creative-experience";
 import IconCloud from "@/components/icon-cloud";
 import ProjectDetails from "@/components/project-details";
-import { JournalArticles, Performances, InvitedTalks, Books, Translations, MediaProduction } from "@/components/publications";
+import {
+	JournalArticles,
+	Performances,
+	InvitedTalks,
+	Books,
+	Translations,
+	MediaProduction,
+} from "@/components/publications";
 import { layouts, selectedCard } from "@/config/layout";
 import { icons } from "@/config/icons";
 import useWindowWidth from "@/hooks/useWindowWidth";
@@ -79,16 +86,19 @@ const Home = ({
 		setSelectedTags(newSelectedTags);
 	};
 
-	const allTags = Array.from(new Set(Object.values(projectTags).flat())).map(tag => ({
-		name: tag,
-		color: getTagColor(tag),
-	}));
+	const allTags = Array.from(new Set(Object.values(projectTags).flat())).map(
+		(tag) => ({
+			name: tag,
+			color: getTagColor(tag),
+		})
+	);
 
-	const filteredProjects = selectedTags.length === 0
-		? Object.keys(projectTags)
-		: Object.keys(projectTags).filter(project => 
-			selectedTags.some(tag => projectTags[project]?.includes(tag))
-		);
+	const filteredProjects =
+		selectedTags.length === 0
+			? Object.keys(projectTags)
+			: Object.keys(projectTags).filter((project) =>
+					selectedTags.some((tag) => projectTags[project]?.includes(tag))
+				);
 
 	return (
 		<div className="flex justify-center flex-col items-center">
@@ -138,15 +148,20 @@ const Home = ({
 						layouts={layouts[tabSelected]}
 						margin={[15, 15]}
 						preventCollision={true}
-						width={width}
-					>
+						width={width}>
 						{Object.entries(selectedCard[tabSelected]).map(
 							([key, isSelected]) => {
 								if (!isSelected) return null;
 
-								const opacity = tabSelected === "projects" 
-									? (selectedTags.length > 0 && !selectedTags.some(tag => projectTags[key]?.includes(tag)) ? 0.3 : 1)
-									: 1;
+								const opacity =
+									tabSelected === "projects"
+										? selectedTags.length > 0 &&
+											!selectedTags.some((tag) =>
+												projectTags[key]?.includes(tag)
+											)
+											? 0.3
+											: 1
+										: 1;
 
 								const commonClasses =
 									"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex overflow-hidden z-[1]";
@@ -160,9 +175,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={`${commonClasses} flex-col justify-between p-5`}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<AvatarTransition
 													avatarUrl={avatarUrl}
 													cartoonUrl={cartoonUrl}
@@ -171,9 +187,10 @@ const Home = ({
 													<span className="text-xl">
 														<b>Zhiyu Alex Zhang 张智瑜</b>
 													</span>
-													, an undergraduate student at the University of Michigan
-													pursuing a dual degree in computer science and music, is
-													an interdisciplinary researcher with interests in
+													, an undergraduate student at the University of
+													Michigan pursuing a dual degree in computer science
+													and music, is an interdisciplinary researcher with
+													interests in
 													<b>
 														<i> education technology for the creative arts</i>
 													</b>
@@ -197,9 +214,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={`${commonClasses} justify-center items-center`}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<ThemeSwitch />
 											</motion.div>
 										);
@@ -210,9 +228,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<AnimatedEmoji />
 											</motion.div>
 										);
@@ -223,9 +242,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={`${commonClasses} relative p-10 md:p-8`}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<IconCloud iconSlugs={icons} />
 											</motion.div>
 										);
@@ -236,9 +256,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<Education />
 											</motion.div>
 										);
@@ -249,9 +270,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<IndustryExperience />
 											</motion.div>
 										);
@@ -262,9 +284,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<CreativeExperience />
 											</motion.div>
 										);
@@ -276,9 +299,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<Item
 													btnHoverStyles="hover:bg-default-100 dark:border-knight"
 													btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
@@ -303,9 +327,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<JournalArticles />
 											</motion.div>
 										);
@@ -316,9 +341,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<Performances aimc2024Url={aimc2024Url} />
 											</motion.div>
 										);
@@ -329,10 +355,14 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
-												<InvitedTalks amis2023Url={amis2023Url} amis2024Url={amis2024Url} />
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
+												<InvitedTalks
+													amis2023Url={amis2023Url}
+													amis2024Url={amis2024Url}
+												/>
 											</motion.div>
 										);
 									case "books":
@@ -342,9 +372,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<Books />
 											</motion.div>
 										);
@@ -355,9 +386,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<Translations />
 											</motion.div>
 										);
@@ -368,9 +400,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<MediaProduction />
 											</motion.div>
 										);
@@ -382,9 +415,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<Item
 													btnHoverStyles="hover:bg-default-100 dark:border-knight"
 													btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
@@ -408,9 +442,10 @@ const Home = ({
 												animate={{ opacity }}
 												className={commonClasses}
 												initial={{ opacity }}
-												style={{ pointerEvents: opacity === 1 ? 'auto' : 'none' }}
-												transition={{ duration: 0.3 }}
-											>
+												style={{
+													pointerEvents: opacity === 1 ? "auto" : "none",
+												}}
+												transition={{ duration: 0.3 }}>
 												<Item
 													btnHoverStyles="hover:bg-default-100 dark:border-knight"
 													btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
@@ -423,7 +458,9 @@ const Home = ({
 													imageWidth={795}
 													linkText="Improvisation Tutor"
 													overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
-													onClick={() => handleProjectClick("improvisationTutor")}
+													onClick={() =>
+														handleProjectClick("improvisationTutor")
+													}
 												/>
 											</motion.div>
 										);
