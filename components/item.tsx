@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface ItemProps {
@@ -14,7 +14,7 @@ interface ItemProps {
 	imageHeight?: number;
 	imageClass: string;
 	onClick: () => void;
-	description: string; // Add this new prop
+	description: string;
 }
 
 const Item = ({
@@ -32,6 +32,13 @@ const Item = ({
 	description,
 }: ItemProps) => {
 	const [isHovered, setIsHovered] = useState(false);
+	const [imageLoaded, setImageLoaded] = useState(false);
+
+	useEffect(() => {
+		const preloadImage = new window.Image();
+		preloadImage.src = imageUrl;
+		preloadImage.onload = () => setImageLoaded(true);
+	}, [imageUrl]);
 
 	return (
 		<div
@@ -39,13 +46,19 @@ const Item = ({
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}>
 			<div className={`absolute ${imageStyles}`}>
+				{!imageLoaded && (
+					<div className="absolute inset-0 bg-gray-200 animate-pulse" />
+				)}
 				<Image
 					alt={linkText}
-					className={`${imageClass} transition-transform duration-500 ${isHovered ? "scale-110" : "scale-100"}`}
+					className={`${imageClass} transition-transform duration-500 ${
+						isHovered ? "scale-110" : "scale-100"
+					} ${imageLoaded ? "opacity-100" : "opacity-0"}`}
 					height={imageHeight}
 					src={imageUrl}
 					width={imageWidth}
 					priority
+					onLoadingComplete={() => setImageLoaded(true)}
 				/>
 			</div>
 			<AnimatePresence>
