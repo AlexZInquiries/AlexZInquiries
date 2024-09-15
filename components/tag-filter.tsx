@@ -24,7 +24,7 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, onFilterChange }) => {
     };
 
     return (
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap justify-center gap-2 mb-4">
         {tags.map((tag) => (
             <motion.button
             key={tag.name}

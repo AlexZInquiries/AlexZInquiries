@@ -72,18 +72,57 @@ const Home = ({
 	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
+		const preloadImages = () => {
+			const urls = [
+				// About Images
+				avatarUrl,
+				cartoonUrl,
+				// Research Images
+				ethnomusicologyUrl,
+				// Publications Images
+				amis2023Url,
+				amis2024Url,
+				aimc2024Url,
+				// Projects Images
+				multimeterUrl,
+				improvisationTutorUrl,
+				// Media URLs
+				...Object.values(mediaUrls).flat(),
+			];
+
+			urls.forEach((url) => {
+				const img = new Image();
+				img.src = url;
+			});
+		};
+
+		preloadImages();
+	}, [
+		avatarUrl,
+		cartoonUrl,
+		ethnomusicologyUrl,
+		amis2023Url,
+		amis2024Url,
+		aimc2024Url,
+		multimeterUrl,
+		improvisationTutorUrl,
+		mediaUrls,
+	]);
+
+	const handleTabChange = (selected: string) => {
+		setTabSelected(selected);
+		setSelectedProject(null);
+
+		// Set loading state for all tab changes
 		setIsLoading(true);
-		// Simulate loading time (you can replace this with actual data fetching if needed)
+		// Simulate loading time (you can replace this with actual data fetching)
 		const timer = setTimeout(() => {
 			setIsLoading(false);
-		}, 1000);
+		}, 200);
 
+		// Clear the timer if the component unmounts or tab changes again
 		return () => clearTimeout(timer);
-	}, [tabSelected]);
-
-	if (!width) {
-		return null;
-	}
+	};
 
 	const handleProjectClick = (projectKey: string) => {
 		setSelectedProject(projectKey);
@@ -109,7 +148,7 @@ const Home = ({
 			? Object.keys(projectTags)
 			: Object.keys(projectTags).filter((project) =>
 					selectedTags.some((tag) => projectTags[project]?.includes(tag))
-				);
+			);
 
 	return (
 		<div className="flex justify-center flex-col items-center">
@@ -128,10 +167,7 @@ const Home = ({
 					transition: { type: "spring", stiffness: 300, damping: 15 },
 				}}
 				radius={"full"}
-				onSelectionChange={(selected) => {
-					setTabSelected(selected as string);
-					setSelectedProject(null);
-				}}>
+				onSelectionChange={handleTabChange}>
 				<Tab key="about" title="About" />
 				<Tab key="research" title="Research" />
 				<Tab key="publications" title="Publications" />
@@ -187,9 +223,9 @@ const Home = ({
 											const opacity =
 												tabSelected === "projects"
 													? selectedTags.length > 0 &&
-														!selectedTags.some((tag) =>
+													  !selectedTags.some((tag) =>
 															projectTags[key]?.includes(tag)
-														)
+													  )
 														? 0.3
 														: 1
 													: 1;
@@ -224,7 +260,6 @@ const Home = ({
 																researcher with interests in
 																<b>
 																	<i>
-																		{" "}
 																		education technology for the creative arts
 																	</i>
 																</b>
@@ -488,8 +523,7 @@ const Home = ({
 																containerStyles="bg-cardGreen dark:bg-darkBg"
 																description="An AI-powered tool designed to help musicians improve their improvisation skills through real-time feedback and personalized exercises."
 																imageClass="w-full h-full object-cover"
-																imageHeight={515}
-																imageStyles="w-full h-full object-cover"
+																imageHeight={515}																imageStyles="w-full h-full object-cover"
 																imageUrl={improvisationTutorUrl}
 																imageWidth={795}
 																linkText="Improvisation Tutor"
