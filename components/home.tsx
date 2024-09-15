@@ -109,8 +109,10 @@ const Home = ({
 		mediaUrls,
 	]);
 
-	const handleTabChange = (selected: string) => {
-		setTabSelected(selected);
+	const handleTabChange = (selected: React.Key) => {
+		const selectedKey = typeof selected === "number" ? selected.toString() : String(selected);
+	
+		setTabSelected(selectedKey);
 		setSelectedProject(null);
 		setIsLoading(true);
 	};
