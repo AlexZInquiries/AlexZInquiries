@@ -112,17 +112,16 @@ const Home = ({
 	const handleTabChange = (selected: string) => {
 		setTabSelected(selected);
 		setSelectedProject(null);
-
-		// Set loading state for all tab changes
 		setIsLoading(true);
-		// Simulate loading time (you can replace this with actual data fetching)
+	};
+
+	useEffect(() => {
 		const timer = setTimeout(() => {
 			setIsLoading(false);
 		}, 200);
 
-		// Clear the timer if the component unmounts or tab changes again
 		return () => clearTimeout(timer);
-	};
+	}, [tabSelected]);
 
 	const handleProjectClick = (projectKey: string) => {
 		setSelectedProject(projectKey);
@@ -148,7 +147,7 @@ const Home = ({
 			? Object.keys(projectTags)
 			: Object.keys(projectTags).filter((project) =>
 					selectedTags.some((tag) => projectTags[project]?.includes(tag))
-			);
+			  );
 
 	return (
 		<div className="flex justify-center flex-col items-center">
