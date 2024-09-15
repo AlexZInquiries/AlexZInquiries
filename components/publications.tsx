@@ -25,7 +25,7 @@ const Performances = ({ aimc2024Url }: { aimc2024Url: string }) => {
     return (
         <PublicationCard title="Performances">
             <li>
-                Julie Z., E. Ackley, <b>Z. Zhang</b>, and J. Granzow. 2024.
+                Zhu, J., E. Ackley, <b>Z. Zhang</b>, and J. Granzow. 2024.
                 <a className={linkClasses} href={aimc2024Url} rel="noopener noreferrer" target="_blank">Deep Drawing: An Intermedia AI Co-Performer.</a>
                 <i>The International Conference on AI and Musical Creativity (AIMC).</i>
             </li>
@@ -54,7 +54,7 @@ const Books = () => {
     return (
         <PublicationCard title="Books">
             <li>
-                <b>Z. Zhang</b>. 2019.
+                <b>Zhang, Z.</b> 2019.
                 <a className={linkClasses} href="https://www.amazon.com/%E5%B0%8F%E6%99%BA%E5%93%A5%E6%95%99%E9%9F%B3%E4%B9%90-%E6%B1%89%E8%8B%B1%E5%AF%B9%E7%85%A7-%E7%B2%BE-%E5%BC%A0%E6%99%BA%E7%91%9C/dp/7567593742">
                     <i>Alex&apos;s Musical Picture Book (小智哥教音乐).</i>
                 </a>
