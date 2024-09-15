@@ -2,8 +2,8 @@
 
 import { Tab, Tabs } from "@nextui-org/react";
 import { Responsive } from "react-grid-layout";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import AvatarTransition from "@/components/avatar";
 import { DockDemo } from "@/components/dock-demo";
@@ -69,6 +69,17 @@ const Home = ({
 	const [tabSelected, setTabSelected] = useState("about");
 	const [selectedProject, setSelectedProject] = useState<string | null>(null);
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
+	const [isLoading, setIsLoading] = useState(false);
+
+	useEffect(() => {
+		setIsLoading(true);
+		// Simulate loading time (you can replace this with actual data fetching if needed)
+		const timer = setTimeout(() => {
+			setIsLoading(false);
+		}, 1000);
+
+		return () => clearTimeout(timer);
+	}, [tabSelected]);
 
 	if (!width) {
 		return null;
@@ -127,351 +138,379 @@ const Home = ({
 				<Tab key="projects" title="Projects" />
 			</Tabs>
 
-			{selectedProject ? (
-				<ProjectDetails
-					mediaUrls={mediaUrls}
-					projectKey={selectedProject}
-					onBack={handleBackToProjects}
-				/>
-			) : (
-				<>
-					{tabSelected === "projects" && (
-						<TagFilter tags={allTags} onFilterChange={handleTagFilterChange} />
-					)}
-					<Responsive
-						breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-						className="layout w-full h-full"
-						cols={{ lg: 4, md: 4, sm: 2, xs: 2, xxs: 2 }}
-						compactType={null}
-						isDraggable={false}
-						isResizable={false}
-						layouts={layouts[tabSelected]}
-						margin={[15, 15]}
-						preventCollision={true}
-						width={width}>
-						{Object.entries(selectedCard[tabSelected]).map(
-							([key, isSelected]) => {
-								if (!isSelected) return null;
+			<AnimatePresence mode="wait">
+				{isLoading ? (
+					<motion.div
+						key="loader"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						className="flex items-center justify-center w-full h-[60vh]">
+						<div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+					</motion.div>
+				) : (
+					<motion.div
+						key="content"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						className="w-full">
+						{selectedProject ? (
+							<ProjectDetails
+								mediaUrls={mediaUrls}
+								projectKey={selectedProject}
+								onBack={handleBackToProjects}
+							/>
+						) : (
+							<>
+								{tabSelected === "projects" && (
+									<TagFilter
+										tags={allTags}
+										onFilterChange={handleTagFilterChange}
+									/>
+								)}
+								<Responsive
+									breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+									className="layout w-full h-full"
+									cols={{ lg: 4, md: 4, sm: 2, xs: 2, xxs: 2 }}
+									compactType={null}
+									isDraggable={false}
+									isResizable={false}
+									layouts={layouts[tabSelected]}
+									margin={[15, 15]}
+									preventCollision={true}
+									width={width}>
+									{Object.entries(selectedCard[tabSelected]).map(
+										([key, isSelected]) => {
+											if (!isSelected) return null;
 
-								const opacity =
-									tabSelected === "projects"
-										? selectedTags.length > 0 &&
-											!selectedTags.some((tag) =>
-												projectTags[key]?.includes(tag)
-											)
-											? 0.3
-											: 1
-										: 1;
+											const opacity =
+												tabSelected === "projects"
+													? selectedTags.length > 0 &&
+														!selectedTags.some((tag) =>
+															projectTags[key]?.includes(tag)
+														)
+														? 0.3
+														: 1
+													: 1;
 
-								const commonClasses =
-									"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex overflow-hidden z-[1]";
+											const commonClasses =
+												"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex overflow-hidden z-[1]";
 
-								switch (key) {
-									// About
-									case "avatar":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={`${commonClasses} flex-col justify-between p-5`}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<AvatarTransition
-													avatarUrl={avatarUrl}
-													cartoonUrl={cartoonUrl}
-												/>
-												<p className="text-sm md:text-medium">
-													<span className="text-xl">
-														<b>Zhiyu Alex Zhang 张智瑜</b>
-													</span>
-													, an undergraduate student at the University of
-													Michigan pursuing a dual degree in computer science
-													and music, is an interdisciplinary researcher with
-													interests in
-													<b>
-														<i> education technology for the creative arts</i>
-													</b>
-													,
-													<b>
-														<i> human-centered user experience design</i>
-													</b>
-													, and
-													<b>
-														<i> ethnomusicology</i>
-													</b>
-													.
-												</p>
-												<DockDemo resumeUrl={resumeUrl} />
-											</motion.div>
-										);
-									case "themeSwitch":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={`${commonClasses} justify-center items-center`}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<ThemeSwitch />
-											</motion.div>
-										);
-									case "animatedEmoji":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<AnimatedEmoji />
-											</motion.div>
-										);
-									case "iconCloud":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={`${commonClasses} relative p-10 md:p-8`}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<IconCloud iconSlugs={icons} />
-											</motion.div>
-										);
-									case "education":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<Education />
-											</motion.div>
-										);
-									case "industryExperience":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<IndustryExperience />
-											</motion.div>
-										);
-									case "creativeExperience":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<CreativeExperience />
-											</motion.div>
-										);
-									// Research
-									case "ethnomusicology":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<Item
-													btnHoverStyles="hover:bg-default-100 dark:border-knight"
-													btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
-													containerStyles="bg-cardBlue dark:bg-darkBg"
-													description="Exploring musical, cultural, and historical significance of Chinese musical instruments from the Tang, Ming, and Qing dynasties."
-													imageClass="w-full h-full object-cover"
-													imageHeight={515}
-													imageStyles="w-full h-full object-cover"
-													imageUrl={ethnomusicologyUrl}
-													imageWidth={795}
-													linkText="Ethnomusicology Research on Ancient Chinese Musical Instruments"
-													overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
-													onClick={() => handleProjectClick("ethnomusicology")}
-												/>
-											</motion.div>
-										);
-									// Publications
-									case "journalArticles":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<JournalArticles />
-											</motion.div>
-										);
-									case "performances":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<Performances aimc2024Url={aimc2024Url} />
-											</motion.div>
-										);
-									case "invitedTalks":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<InvitedTalks
-													amis2023Url={amis2023Url}
-													amis2024Url={amis2024Url}
-												/>
-											</motion.div>
-										);
-									case "books":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<Books />
-											</motion.div>
-										);
-									case "translations":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<Translations />
-											</motion.div>
-										);
-									case "mediaProduction":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<MediaProduction />
-											</motion.div>
-										);
-									// Projects
-									case "multimeter":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<Item
-													btnHoverStyles="hover:bg-default-100 dark:border-knight"
-													btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
-													containerStyles="bg-cardPurple dark:bg-darkBg"
-													description="A comprehensive set of AU/VST real-time audio analysis tools in one window implemented with JUCE 6."
-													imageClass="w-full h-full object-cover"
-													imageHeight={515}
-													imageStyles="w-full h-full object-cover"
-													imageUrl={multimeterUrl}
-													imageWidth={795}
-													linkText="MultiMeter"
-													overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
-													onClick={() => handleProjectClick("multimeter")}
-												/>
-											</motion.div>
-										);
-									case "improvisationTutor":
-										return (
-											<motion.div
-												key={key}
-												animate={{ opacity }}
-												className={commonClasses}
-												initial={{ opacity }}
-												style={{
-													pointerEvents: opacity === 1 ? "auto" : "none",
-												}}
-												transition={{ duration: 0.3 }}>
-												<Item
-													btnHoverStyles="hover:bg-default-100 dark:border-knight"
-													btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
-													containerStyles="bg-cardGreen dark:bg-darkBg"
-													description="An AI-powered tool designed to help musicians improve their improvisation skills through real-time feedback and personalized exercises."
-													imageClass="w-full h-full object-cover"
-													imageHeight={515}
-													imageStyles="w-full h-full object-cover"
-													imageUrl={improvisationTutorUrl}
-													imageWidth={795}
-													linkText="Improvisation Tutor"
-													overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
-													onClick={() =>
-														handleProjectClick("improvisationTutor")
-													}
-												/>
-											</motion.div>
-										);
-									default:
-										return null;
-								}
-							}
+											switch (key) {
+												// About
+												case "avatar":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={`${commonClasses} flex-col justify-between p-5`}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<AvatarTransition
+																avatarUrl={avatarUrl}
+																cartoonUrl={cartoonUrl}
+															/>
+															<p className="text-sm md:text-medium">
+																<span className="text-xl">
+																	<b>Zhiyu Alex Zhang 张智瑜</b>
+																</span>
+																, an undergraduate student at the University of
+																Michigan pursuing a dual degree in computer
+																science and music, is an interdisciplinary
+																researcher with interests in
+																<b>
+																	<i>
+																		{" "}
+																		education technology for the creative arts
+																	</i>
+																</b>
+																,
+																<b>
+																	<i> human-centered user experience design</i>
+																</b>
+																, and
+																<b>
+																	<i> ethnomusicology</i>
+																</b>
+																.
+															</p>
+															<DockDemo resumeUrl={resumeUrl} />
+														</motion.div>
+													);
+												case "themeSwitch":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={`${commonClasses} justify-center items-center`}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<ThemeSwitch />
+														</motion.div>
+													);
+												case "animatedEmoji":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<AnimatedEmoji />
+														</motion.div>
+													);
+												case "iconCloud":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={`${commonClasses} relative p-10 md:p-8`}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<IconCloud iconSlugs={icons} />
+														</motion.div>
+													);
+												case "education":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<Education />
+														</motion.div>
+													);
+												case "industryExperience":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<IndustryExperience />
+														</motion.div>
+													);
+												case "creativeExperience":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<CreativeExperience />
+														</motion.div>
+													);
+												// Research
+												case "ethnomusicology":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<Item
+																btnHoverStyles="hover:bg-default-100 dark:border-knight"
+																btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
+																containerStyles="bg-cardBlue dark:bg-darkBg"
+																description="Exploring musical, cultural, and historical significance of Chinese musical instruments from the Tang, Ming, and Qing dynasties."
+																imageClass="w-full h-full object-cover"
+																imageHeight={515}
+																imageStyles="w-full h-full object-cover"
+																imageUrl={ethnomusicologyUrl}
+																imageWidth={795}
+																linkText="Ethnomusicology Research on Ancient Chinese Musical Instruments"
+																overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
+																onClick={() =>
+																	handleProjectClick("ethnomusicology")
+																}
+															/>
+														</motion.div>
+													);
+												// Publications
+												case "journalArticles":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<JournalArticles />
+														</motion.div>
+													);
+												case "performances":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<Performances aimc2024Url={aimc2024Url} />
+														</motion.div>
+													);
+												case "invitedTalks":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<InvitedTalks
+																amis2023Url={amis2023Url}
+																amis2024Url={amis2024Url}
+															/>
+														</motion.div>
+													);
+												case "books":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<Books />
+														</motion.div>
+													);
+												case "translations":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<Translations />
+														</motion.div>
+													);
+												case "mediaProduction":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<MediaProduction />
+														</motion.div>
+													);
+												// Projects
+												case "multimeter":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<Item
+																btnHoverStyles="hover:bg-default-100 dark:border-knight"
+																btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
+																containerStyles="bg-cardPurple dark:bg-darkBg"
+																description="A comprehensive set of AU/VST real-time audio analysis tools in one window implemented with JUCE 6."
+																imageClass="w-full h-full object-cover"
+																imageHeight={515}
+																imageStyles="w-full h-full object-cover"
+																imageUrl={multimeterUrl}
+																imageWidth={795}
+																linkText="MultiMeter"
+																overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
+																onClick={() => handleProjectClick("multimeter")}
+															/>
+														</motion.div>
+													);
+												case "improvisationTutor":
+													return (
+														<motion.div
+															key={key}
+															animate={{ opacity }}
+															className={commonClasses}
+															initial={{ opacity }}
+															style={{
+																pointerEvents: opacity === 1 ? "auto" : "none",
+															}}
+															transition={{ duration: 0.3 }}>
+															<Item
+																btnHoverStyles="hover:bg-default-100 dark:border-knight"
+																btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
+																containerStyles="bg-cardGreen dark:bg-darkBg"
+																description="An AI-powered tool designed to help musicians improve their improvisation skills through real-time feedback and personalized exercises."
+																imageClass="w-full h-full object-cover"
+																imageHeight={515}
+																imageStyles="w-full h-full object-cover"
+																imageUrl={improvisationTutorUrl}
+																imageWidth={795}
+																linkText="Improvisation Tutor"
+																overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
+																onClick={() =>
+																	handleProjectClick("improvisationTutor")
+																}
+															/>
+														</motion.div>
+													);
+												default:
+													return null;
+											}
+										}
+									)}
+								</Responsive>
+							</>
 						)}
-					</Responsive>
-				</>
-			)}
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 };
