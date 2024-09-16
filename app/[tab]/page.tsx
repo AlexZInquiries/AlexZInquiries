@@ -1,6 +1,7 @@
+import { notFound } from "next/navigation";
+
 import Home from "@/components/home";
 import { getPhotoUrl } from "@/firebase/db/photo";
-import { notFound } from "next/navigation";
 
 // Define all possible tabs
 const TABS = ["about", "research", "publications", "projects"];

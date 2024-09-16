@@ -1,20 +1,25 @@
+"use client";
+
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardHeader, CardBody } from "@nextui-org/react";
 import { IoCloseOutline } from "react-icons/io5";
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 interface ProjectDetailsProps {
 	projectKey: string;
-	onBack: () => void;
 	mediaUrls: Record<string, string[]>;
 }
 
-const ProjectDetails: React.FC<ProjectDetailsProps> = ({
-	projectKey,
-	onBack,
-	mediaUrls,
-}) => {
+const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }) => {
+	const router = useRouter();
+
+	const handleBack = () => {
+		const isResearch = projectKey === 'ethnomusicology'; // Adjust this condition based on your project keys
+		router.push(`/${isResearch ? 'research' : 'projects'}`);
+	};
+
 	const getProjectTitle = (key: string): string => {
 		switch (key) {
 			// Research
@@ -158,7 +163,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({
 				<h2 className="text-2xl font-bold">{getProjectTitle(projectKey)}</h2>
 				<button
 					className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
-					onClick={onBack}
+					onClick={handleBack}
 				>
 					<IoCloseOutline size={24} />
 				</button>

@@ -69,25 +69,18 @@ const Home = ({
 	projectTags,
 }: HomeProps) => {
 	const width = useWindowWidth();
-	const [selectedProject, setSelectedProject] = useState<string | null>(null);
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
 	const router = useRouter();
 
 	const handleTabChange = (selected: React.Key) => {
 		const selectedKey = String(selected);
 
-		setSelectedProject(null);
-
 		// Navigate to the new path
 		router.push(`/${selectedKey}`);
 	};
 
 	const handleProjectClick = (projectKey: string) => {
-		setSelectedProject(projectKey);
-	};
-
-	const handleBackToProjects = () => {
-		setSelectedProject(null);
+		router.push(`/${selectedTab}/${projectKey}`);
 	};
 
 	const handleTagFilterChange = (newSelectedTags: string[]) => {
@@ -139,13 +132,6 @@ const Home = ({
 					exit={{ opacity: 0 }}
 					className="w-full"
 					>
-					{selectedProject ? (
-						<ProjectDetails
-						mediaUrls={mediaUrls}
-						projectKey={selectedProject}
-						onBack={handleBackToProjects}
-						/>
-					) : (
 						<>
 						{selectedTab === "projects" && (
 							<TagFilter tags={allTags} onFilterChange={handleTagFilterChange} />
@@ -490,7 +476,6 @@ const Home = ({
 									})}
 								</Responsive>
 							</>
-						)}
 					</motion.div>
 				</AnimatePresence>
 		</div>
