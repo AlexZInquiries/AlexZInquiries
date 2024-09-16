@@ -67,20 +67,20 @@ export default async function App() {
   return (
     <Home
       // About
-      amis2023Url={amis2023Url}
-      amis2024Url={amis2024Url}
-      improvisationTutorUrl={improvisationTutorUrl}
-      mediaUrls={mediaUrls}
-      projectTags={projectTags}
-      aimc2024Url={aimc2024Url}
-      // Projects
-      multimeterUrl={multimeterUrl}
       avatarUrl={avatarUrl}
-      // Publications
       cartoonUrl={cartoonUrl}
       resumeUrl={resumeUrl}
       // Research
       ethnomusicologyUrl={ethnomusicologyUrl}
+      // Publications
+      amis2023Url={amis2023Url}
+      amis2024Url={amis2024Url}
+      aimc2024Url={aimc2024Url}
+      // Projects
+      multimeterUrl={multimeterUrl}
+      improvisationTutorUrl={improvisationTutorUrl}
+      mediaUrls={mediaUrls}
+      projectTags={projectTags}
     />
   );
 }

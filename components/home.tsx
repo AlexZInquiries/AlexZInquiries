@@ -4,6 +4,7 @@ import { Tab, Tabs } from "@nextui-org/react";
 import { Responsive } from "react-grid-layout";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname, useRouter } from "next/navigation";
 
 import AvatarTransition from "@/components/avatar";
 import { DockDemo } from "@/components/dock-demo";
@@ -65,11 +66,29 @@ const Home = ({
 	mediaUrls,
 	projectTags,
 }: HomeProps) => {
+	const router = useRouter();
+	const pathname = usePathname();
 	const width = useWindowWidth();
-	const [tabSelected, setTabSelected] = useState("about");
 	const [selectedProject, setSelectedProject] = useState<string | null>(null);
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
+
+	// Determine the selected tab based on the pathname
+	const determineTab = () => {
+		switch (pathname) {
+			case "/":
+			case "/#":
+				return "about";
+			case "/research":
+				return "research";
+			case "/publications":
+				return "publications";
+			case "/projects":
+				return "projects";
+			default:
+				return "about";
+		}
+	};
 
 	useEffect(() => {
 		const preloadImages = () => {
@@ -111,10 +130,26 @@ const Home = ({
 
 	const handleTabChange = (selected: React.Key) => {
 		const selectedKey = typeof selected === "number" ? selected.toString() : String(selected);
-	
-		setTabSelected(selectedKey);
+
 		setSelectedProject(null);
 		setIsLoading(true);
+
+		switch (selectedKey) {
+			case "about":
+				router.push("/#");
+				break;
+			case "research":
+				router.push("/research");
+				break;
+			case "publications":
+				router.push("/publications");
+				break;
+			case "projects":
+				router.push("/projects");
+				break;
+			default:
+				router.push("/#");
+		}
 	};
 
 	useEffect(() => {
@@ -123,7 +158,7 @@ const Home = ({
 		}, 200);
 
 		return () => clearTimeout(timer);
-	}, [tabSelected]);
+	}, [pathname]);
 
 	const handleProjectClick = (projectKey: string) => {
 		setSelectedProject(projectKey);
@@ -137,12 +172,10 @@ const Home = ({
 		setSelectedTags(newSelectedTags);
 	};
 
-	const allTags = Array.from(new Set(Object.values(projectTags).flat())).map(
-		(tag) => ({
-			name: tag,
-			color: getTagColor(tag),
-		})
-	);
+	const allTags = Array.from(new Set(Object.values(projectTags).flat())).map((tag) => ({
+		name: tag,
+		color: getTagColor(tag),
+	}));
 
 	const filteredProjects =
 		selectedTags.length === 0
@@ -151,6 +184,8 @@ const Home = ({
 					selectedTags.some((tag) => projectTags[project]?.includes(tag))
 			  );
 
+	const currentTab = determineTab();
+
 	return (
 		<div className="flex justify-center flex-col items-center">
 			<Tabs
@@ -158,8 +193,7 @@ const Home = ({
 				className="mb-2 md:mb-6 rounded-full"
 				classNames={{
 					cursor: "shadow-none",
-					tabList:
-						"bg-[#ece7e7] dark:bg-darkBg border-2 border-transparent dark:border-knight rounded-full",
+					tabList: "bg-[#ece7e7] dark:bg-darkBg border-2 border-transparent dark:border-knight rounded-full",
 				}}
 				motionProps={{
 					initial: { scale: 0.8 },
@@ -168,7 +202,8 @@ const Home = ({
 					transition: { type: "spring", stiffness: 300, damping: 15 },
 				}}
 				radius={"full"}
-				onSelectionChange={handleTabChange}>
+				onSelectionChange={handleTabChange}
+				selectedKey={currentTab}>
 				<Tab key="about" title="About" />
 				<Tab key="research" title="Research" />
 				<Tab key="publications" title="Publications" />
@@ -200,83 +235,68 @@ const Home = ({
 							/>
 						) : (
 							<>
-								{tabSelected === "projects" && (
-									<TagFilter
-										tags={allTags}
-										onFilterChange={handleTagFilterChange}
-									/>
+								{currentTab === "projects" && (
+									<TagFilter tags={allTags} onFilterChange={handleTagFilterChange} />
 								)}
 								<Responsive
-									breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-									className="layout w-full h-full"
-									cols={{ lg: 4, md: 4, sm: 2, xs: 2, xxs: 2 }}
-									compactType={null}
-									isDraggable={false}
-									isResizable={false}
-									layouts={layouts[tabSelected]}
-									margin={[15, 15]}
-									preventCollision={true}
-									width={width}>
-									{Object.entries(selectedCard[tabSelected]).map(
-										([key, isSelected]) => {
-											if (!isSelected) return null;
+								breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
+								className="layout w-full h-full"
+								cols={{ lg: 4, md: 4, sm: 2, xs: 2, xxs: 2 }}
+								compactType={null}
+								isDraggable={false}
+								isResizable={false}
+								layouts={layouts[currentTab]}
+								margin={[15, 15]}
+								preventCollision={true}
+								width={width}>
+									{Object.entries(selectedCard[currentTab]).map(([key, isSelected]) => {
+										if (!isSelected) return null;
 
-											const opacity =
-												tabSelected === "projects"
-													? selectedTags.length > 0 &&
-													  !selectedTags.some((tag) =>
-															projectTags[key]?.includes(tag)
-													  )
-														? 0.3
-														: 1
-													: 1;
+										const opacity =
+											currentTab === "projects"
+												? selectedTags.length > 0 &&
+												  !selectedTags.some((tag) => projectTags[key]?.includes(tag))
+													? 0.3
+													: 1
+												: 1;
 
-											const commonClasses =
-												"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex overflow-hidden z-[1]";
+										const commonClasses =
+											"bg-white dark:bg-darkBg border-2 border-transparent dark:border-knight cursor-grab active:cursor-grabbing rounded-[2rem] flex overflow-hidden z-[1]";
 
-											switch (key) {
-												// About
-												case "avatar":
-													return (
-														<motion.div
-															key={key}
-															animate={{ opacity }}
-															className={`${commonClasses} flex-col justify-between p-5`}
-															initial={{ opacity }}
-															style={{
-																pointerEvents: opacity === 1 ? "auto" : "none",
-															}}
-															transition={{ duration: 0.3 }}>
-															<AvatarTransition
-																avatarUrl={avatarUrl}
-																cartoonUrl={cartoonUrl}
-															/>
-															<p className="text-sm md:text-medium">
-																<span className="text-xl">
-																	<b>Zhiyu Alex Zhang 张智瑜</b>
-																</span>
-																, an undergraduate student at the University of
-																Michigan pursuing a dual degree in computer
-																science and music, is an interdisciplinary
-																researcher with interests in
-																<b>
-																	<i>
-																		education technology for the creative arts
-																	</i>
-																</b>
-																,
-																<b>
-																	<i> human-centered user experience design</i>
-																</b>
-																, and
-																<b>
-																	<i> ethnomusicology</i>
-																</b>
-																.
-															</p>
-															<DockDemo resumeUrl={resumeUrl} />
-														</motion.div>
-													);
+										switch (key) {
+											// About
+											case "avatar":
+												return (
+													<motion.div
+														key={key}
+														animate={{ opacity }}
+														className={`${commonClasses} flex-col justify-between p-5`}
+														initial={{ opacity }}
+														style={{
+															pointerEvents: opacity === 1 ? "auto" : "none",
+														}}
+														transition={{ duration: 0.3 }}>
+														<AvatarTransition avatarUrl={avatarUrl} cartoonUrl={cartoonUrl} />
+														<p className="text-sm md:text-medium">
+															<span className="text-xl">
+																<b>Zhiyu Alex Zhang 张智瑜</b>
+															</span>
+															, an undergraduate student at the University of Michigan pursuing a dual degree in computer
+															science and music, is an interdisciplinary researcher with interests in
+															<b>
+																<i> education technology for the creative arts</i>
+															</b>
+															, <b>
+																<i> human-centered user experience design</i>
+															</b>
+															, and <b>
+																<i> ethnomusicology</i>
+															</b>
+															.
+														</p>
+														<DockDemo resumeUrl={resumeUrl} />
+													</motion.div>
+												);
 												case "themeSwitch":
 													return (
 														<motion.div
@@ -535,11 +555,10 @@ const Home = ({
 															/>
 														</motion.div>
 													);
-												default:
-													return null;
-											}
+											default:
+												return null;
 										}
-									)}
+									})}
 								</Responsive>
 							</>
 						)}
