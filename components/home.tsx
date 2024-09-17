@@ -87,7 +87,7 @@ const Home = ({
 		setSelectedTags(newSelectedTags);
 	};
 
-	const allTags = Array.from(new Set(Object.values(projectTags).flat())).map((tag) => ({
+	const allTags = Object.keys(getTagColor.colors).map((tag) => ({
 		name: tag,
 		color: getTagColor(tag),
 	}));
