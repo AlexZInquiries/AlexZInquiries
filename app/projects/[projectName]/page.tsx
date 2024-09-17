@@ -1,4 +1,3 @@
-// app/projects/[projectName]/page.tsx
 import { getPhotoUrl } from '@/firebase/db/photo';
 import ProjectDetails from '@/components/project-details';
 
@@ -8,12 +7,10 @@ interface PageProps {
     };
 }
 
-// Add this function
 export async function generateStaticParams() {
     const projectNames = [
         'multimeter',
         'improvisationTutor',
-        // Add other project names here
     ];
 
     return projectNames.map((projectName) => ({ projectName }));
@@ -22,18 +19,22 @@ export async function generateStaticParams() {
 export default async function ProjectPage({ params }: PageProps) {
     const { projectName } = params;
 
-    // Fetch media URLs for the project
-    const mediaUrls = {
-        [projectName]: [await getPhotoUrl(`projects/${projectName}.gif`)],
-        // Add other media URLs as needed
-    };
+    // Fetch media URLs for the project separately
+    let mediaUrls: Record<string, string[]> = {};
+
+    if (projectName === 'multimeter') {
+        mediaUrls[projectName] = [
+            await getPhotoUrl(`projects/multimeter.gif`),
+        ];
+    } else if (projectName === 'improvisationTutor') {
+        mediaUrls[projectName] = [];
+    } 
 
     // Render the ProjectDetails component
     return (
         <ProjectDetails
         projectKey={projectName}
         mediaUrls={mediaUrls}
-        // Pass other necessary props if needed
         />
     );
 }

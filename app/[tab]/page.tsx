@@ -19,8 +19,6 @@ export default async function Page({ params }: { params: { tab: string } }) {
     notFound();
   }
 
-  // Fetch your data here...
-
   // About
   const avatarUrlPromise = getPhotoUrl("avatar/profile-picture.jpg");
   const cartoonUrlPromise = getPhotoUrl("avatar/cartoon-picture.jpg");
@@ -40,7 +38,6 @@ export default async function Page({ params }: { params: { tab: string } }) {
 
   const mediaUrls: Record<string, string[]> = {
     multimeter: [await getPhotoUrl("projects/multimeter.gif")],
-    // Add other media URLs as needed
   };
 
   const [
