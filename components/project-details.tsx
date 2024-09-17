@@ -90,7 +90,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 				<h3 className="text-xl font-semibold">Key Features:</h3>
 				<ul className="list-none space-y-6">
 					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-						<h3 className="text-xl font-semibold mb-2">General Metering</h3>
+						<h4 className="text-lg font-semibold mb-2">General Metering</h4>
 						<ul className="list-disc pl-5 space-y-2">
 							<li>Employs a high-performance FIFO (First In, First Out) buffer to efficiently handle audio data between DSP and GUI threads.</li>
 							<li>Features a series of comboboxes and sliders to personalize metering behavior, including averager durations and various meter displays.</li>
@@ -98,7 +98,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 					</li>
 
 					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-						<h3 className="text-xl font-semibold mb-2">Level Meter</h3>
+						<h4 className="text-lg font-semibold mb-2">Level Meter</h4>
 						<ul className="list-disc pl-5 space-y-2">
 							<li>Provides instantaneous visual feedback of audio signal levels with numeric value displays of signal levels in decibels.</li>
 							<li>Supports Root Mean Squared (RMS) readings to show the effective signal average and provide a representative overview of perceived volume levels.</li>
@@ -109,28 +109,28 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 					</li>
 
 					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-						<h3 className="text-xl font-semibold mb-2">Histogram</h3>
+						<h4 className="text-lg font-semibold mb-2">Histogram</h4>
 						<ul className="list-disc pl-5 space-y-2">
 							<li>Visualizes the distribution of signal level dynamics over time.</li>
 						</ul>
 					</li>
 
 					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-						<h3 className="text-xl font-semibold mb-2">Goniometer</h3>
+						<h4 className="text-lg font-semibold mb-2">Goniometer</h4>
 						<ul className="list-disc pl-5 space-y-2">
 							<li>Converts L/R audio signals into Mid/Side representations that provide insights into the coherence of the stereo field distribution and phase differences between the left and right channels.</li>
 						</ul>
 					</li>
 
 					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-						<h3 className="text-xl font-semibold mb-2">Correlation Meter</h3>
+						<h4 className="text-lg font-semibold mb-2">Correlation Meter</h4>
 						<ul className="list-disc pl-5 space-y-2">
 							<li>Provides real-time readings of the phase correlation between left and right audio channels, ranging from +1 (fully in-phase) to 0 (wide stereo) to negative values (out-of-phase), to help identify potential phase issues and ensure mono compatibility.</li>
 						</ul>
 					</li>
 
 					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-						<h3 className="text-xl font-semibold mb-2">FFT Spectrogram Analyzer</h3>
+						<h4 className="text-lg font-semibold mb-2">FFT Spectrogram Analyzer</h4>
 						<ul className="list-disc pl-5 space-y-2">
 							<li>Presents a high-resolution Fast Fourier Transform (FFT) spectrum with logarithmically scaled frequency bins, displaying the frequency content over time with a curve of all frequency components in the incoming signal and enabling in-depth spectral balance analysis.</li>
 						</ul>
