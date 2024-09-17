@@ -43,7 +43,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 			return (
 				<div className="space-y-6">
 					<p className="text-lg">
-						This research explores the intersection of music, culture, and technology in ethnomusicological studies. It focuses on how digital tools and methodologies can enhance our understanding of musical traditions and practices across different cultures.
+						Coming soon.
 					</p>
 					{mediaUrls[projectKey] && (
 						<div className="w-full flex flex-wrap justify-center gap-4">
@@ -59,13 +59,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 							))}
 						</div>
 					)}
-					<h3 className="text-xl font-semibold">Key Areas of Focus:</h3>
-					<ul className="list-disc list-inside space-y-2">
-						<li>Digital ethnography in music research</li>
-						<li>Computational analysis of musical patterns across cultures</li>
-						<li>Preservation and digitization of traditional music</li>
-						<li>Impact of technology on musical practices and transmission</li>
-					</ul>
 					<div className="h-6"> </div>
 				</div>
 			);
@@ -87,21 +80,61 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 								key={index}
 								alt={`${projectKey} media ${index + 1}`}
 								className="rounded-lg"
-								height={300}
+								height={390}
 								src={url}
-								width={500}
+								width={650}
 							/>
 						))}
 					</div>
 				)}
 				<h3 className="text-xl font-semibold">Key Features:</h3>
-				<ul className="list-disc list-inside space-y-2">
-					<li>General Metering with customizable settings</li>
-					<li>Level Meter with peak and RMS readings</li>
-					<li>Histogram for signal level dynamics visualization</li>
-					<li>Goniometer for stereo field and phase relationship analysis</li>
-					<li>Correlation Meter for phase issue detection</li>
-					<li>High-resolution Spectrogram Analyzer</li>
+				<ul className="list-none space-y-6">
+					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+						<h3 className="text-xl font-semibold mb-2">General Metering</h3>
+						<ul className="list-disc pl-5 space-y-2">
+							<li>Employs a high-performance FIFO (First In, First Out) buffer to efficiently handle audio data between DSP and GUI threads.</li>
+							<li>Features a series of comboboxes and sliders to personalize metering behavior, including averager durations and various meter displays.</li>
+						</ul>
+					</li>
+
+					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+						<h3 className="text-xl font-semibold mb-2">Level Meter</h3>
+						<ul className="list-disc pl-5 space-y-2">
+							<li>Provides instantaneous visual feedback of audio signal levels with numeric value displays of signal levels in decibels.</li>
+							<li>Supports Root Mean Squared (RMS) readings to show the effective signal average and provide a representative overview of perceived volume levels.</li>
+							<li>Supports peak readings to show peak levels accurately.</li>
+							<li>Enables user adjustment of the decay rate of meter ticks with multiple responsiveness options.</li>
+							<li>Allows holding peak tick values for a specified duration to enhance the analysis of transient audio materials.</li>
+						</ul>
+					</li>
+
+					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+						<h3 className="text-xl font-semibold mb-2">Histogram</h3>
+						<ul className="list-disc pl-5 space-y-2">
+							<li>Visualizes the distribution of signal level dynamics over time.</li>
+						</ul>
+					</li>
+
+					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+						<h3 className="text-xl font-semibold mb-2">Goniometer</h3>
+						<ul className="list-disc pl-5 space-y-2">
+							<li>Converts L/R audio signals into Mid/Side representations that provide insights into the coherence of the stereo field distribution and phase differences between the left and right channels.</li>
+						</ul>
+					</li>
+
+					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+						<h3 className="text-xl font-semibold mb-2">Correlation Meter</h3>
+						<ul className="list-disc pl-5 space-y-2">
+							<li>Provides real-time readings of the phase correlation between left and right audio channels, ranging from +1 (fully in-phase) to 0 (wide stereo) to negative values (out-of-phase), to help identify potential phase issues and ensure mono compatibility.</li>
+						</ul>
+					</li>
+
+					<li className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+						<h3 className="text-xl font-semibold mb-2">FFT Spectrogram Analyzer</h3>
+						<ul className="list-disc pl-5 space-y-2">
+							<li>Presents a high-resolution Fast Fourier Transform (FFT) spectrum with logarithmically scaled frequency bins, displaying the frequency content over time with a curve of all frequency components in the incoming signal and enabling in-depth spectral balance analysis.</li>
+						</ul>
+					</li>
 				</ul>
 				<div className="h-6"> </div> { /* This adds consistent spacing */ }
 				</div>
@@ -110,7 +143,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 			return (
 				<div className="space-y-6">
 					<p className="text-lg">
-						The Improvisation Tutor is an innovative AI-powered application designed to help musicians of all levels improve their improvisation skills. By leveraging machine learning algorithms and real-time audio processing, it provides personalized feedback and exercises tailored to each users skill level and learning goals.
+						Coming soon.
 					</p>
 					{mediaUrls[projectKey] && (
 						<div className="w-full flex flex-wrap justify-center gap-4">
@@ -126,14 +159,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 							))}
 						</div>
 					)}
-					<h3 className="text-xl font-semibold">Key Features:</h3>
-					<ul className="list-disc list-inside space-y-2">
-						<li>Real-time audio analysis and feedback</li>
-						<li>Personalized exercise generation based on users skill level</li>
-						<li>Extensive library of backing tracks and chord progressions</li>
-						<li>Progress tracking and performance analytics</li>
-						<li>Integration with popular Digital Audio Workstations (DAWs)</li>
-					</ul>
+					
 					<div className="h-6"> </div>
 				</div>
 			);
