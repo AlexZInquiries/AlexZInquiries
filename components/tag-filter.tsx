@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 
@@ -14,7 +14,12 @@ interface TagFilterProps {
 
 const TagFilter: React.FC<TagFilterProps> = ({ tags, onFilterChange }) => {
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const toggleTag = (tagName: string) => {
         const newSelectedTags = selectedTags.includes(tagName)
@@ -25,15 +30,20 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, onFilterChange }) => {
         onFilterChange(newSelectedTags);
     };
 
+    if (!mounted) {
+        // Avoid rendering until the theme is properly loaded
+        return null;
+    }
+
     const getBackgroundColor = (tag: Tag) => {
         if (selectedTags.includes(tag.name)) {
             return tag.color;
         }
-        return theme === 'dark' ? '#3f3f46' : '#ece7e7'; // Adjust default based on theme
+        return resolvedTheme === 'dark' ? '#3f3f46' : '#ece7e7';
     };
 
     const getTextColor = (tag: Tag) => {
-        return selectedTags.includes(tag.name) ? 'text-white' : (theme === 'dark' ? 'text-gray-300' : 'text-gray-700');
+        return selectedTags.includes(tag.name) ? 'text-white' : (resolvedTheme === 'dark' ? 'text-gray-300' : 'text-gray-700');
     };
 
     return (
