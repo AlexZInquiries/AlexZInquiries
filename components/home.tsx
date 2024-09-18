@@ -301,7 +301,7 @@ const Home = ({
 								case "deep-drawing":
 									const researchDetails = {
 										ethnomusicology: {
-											description: "Exploring musical, cultural, and historical significance of Chinese musical instruments from the Tang, Ming, and Qing dynasties",
+											description: "Exploring the Musical, Cultural, and Historical Significance of Chinese Musical Instruments from the Tang, Ming, and Qing Dynasties",
 											linkText: "Ethnomusicology Research on Ancient Chinese Musical Instruments",
 											imageUrl: ethnomusicologyUrl,
 										},

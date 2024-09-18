@@ -29,11 +29,11 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }
 			case "ethnomusicology":
 				return "Ethnomusicology Research on Ancient Chinese Musical Instruments";
 			case "vtmp":
-				return "VTMP Research";
+				return "Visualizing Telematic Music Performance";
 			case "boulez":
-				return "Boulez Research";
+				return "Web-based Spatial Audio Playground for IRCAM";
 			case "deep-drawing":
-				return "Deep Drawing Research";
+				return "Deep Drawing: An Intermedia AI Co-Performer";
 			// Publications
 			// Projects
 			case "multimeter":
@@ -52,10 +52,10 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }
 			return (
 				<div className="space-y-6">
 					<p className="text-lg">
-						My research in ethnomusicology explores the tapestry of ancient Chinese musical instruments, examining their continuity and transformation across various historical periods. I focus on their intricate relationship with social, cultural, and political structures. My work in this area has led to a conference paper presentation, a conference poster presentation, and a journal article for the American Musical Instrument Society (AMIS) between 2023 and 2024.
+						My research in ethnomusicology explores the tapestry of ancient Chinese musical instruments, examining their continuity and transformation across various historical periods. I focus on their intricate relationship with social, cultural, and political structures. My work in this area has led to a conference paper presentation, a conference poster presentation, and a journal article for the American Musical Instrument Society (AMIS) in 2023 and 2024.
 					</p>
 					<p className="text-lg">
-						In collaboration with Professor Stewart Carter at Wake Forest University, I zoom in on the evolution of Chinese musical instruments and practices during the Ming and Qing dynasties. We examine sources in both classical Chinese and French, such as Daqing huidian (大清会典), Lülü zhengyi (律吕正义), and the manuscripts of Joseph-Marie Amiot, an 18th-century Jesuit missionary to China. Our analysis evaluates and compares the measurements of musical instruments in these treatises, highlighting both the overall accuracy of Amiot&apos;s descriptions and some subtle yet intriguing flaws. Ultimately, our work sheds light on the broader landscape of early musical exchange between China and Europe.
+						In collaboration with Professor Stewart Carter at Wake Forest University, I zoom in on the evolution of Chinese musical instruments and practices during the Ming and Qing dynasties. We examine sources in both classical Chinese and French, such as <i>Daqing huidian (大清会典)</i>, <i>Lülü zhengyi (律吕正义)</i>, and the manuscripts of Joseph-Marie Amiot, an 18th-century Jesuit missionary to China. Our analysis evaluates and compares the measurements of musical instruments in these treatises, highlighting both the overall accuracy of Amiot&apos;s descriptions and some subtle yet intriguing flaws. Ultimately, our work sheds light on the broader landscape of early musical exchange between China and Europe.
 					</p>
 					<p className="text-lg">
 						Our research also delves into earlier periods, leveraging the iconography of terracotta musicians and dancers from the Former and Later Shu kingdoms of the 10th century. Another joint effort with Professor Carter shows how these regional powers emulated musical traditions of the preceding Tang Dynasty to establish legitimacy. Analyzing artifacts from the Yongling Mausoleum and the Chengdu Museum reveals the enduring influence of Tang court music and dance, while also highlighting unique regional adaptations.
@@ -67,22 +67,17 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }
 			return (
 				<div className="space-y-6">
 					<p className="text-lg">
-						Coming soon.
+						Visualizing Telematic Music Performance, directed by Professors Michael Gurevich, John Granzow, and Brent Gillespie at the University of Michigan, investigates the interplay between human gesture, embodiment, and musical expression in the context of networked music performances. We seek not only to overcome the latencies caused by video transmissions with new forms of visual data transmission, but also to provide insights into how technology can extend our understanding of presence and agency in distributed performance environments. Can robotic avatars driven by performers enhance the depth and richness of musical interactions?
 					</p>
-					{mediaUrls[itemKey] && (
-						<div className="w-full flex flex-wrap justify-center gap-4">
-							{mediaUrls[itemKey].map((url, index) => (
-								<Image
-									key={index}
-									alt={`${itemKey} media ${index + 1}`}
-									className="rounded-lg"
-									height={300}
-									src={url}
-									width={500}
-								/>
-							))}
-						</div>
-					)}
+					<p className="text-lg">
+					Central to our system is LARS (Lamp Arm Robot <i>Something</i>), a robotic avatar designed by the team that serves as a physical proxy to translate remote performers’ gestures into meticulously abstracted and meaningful movements. The system leverages Qualysis, JackTrip, MaxMSP, Processing, Arduino, and 3D fabrication.
+					</p>
+					<p className="text-lg">
+						We conduct pilot studies, including interviews with chamber musicians and surveys for audience members. Our goal is to explore how mechatronic representations influence ensemble coordination, expressive phrasing, and the overall musical experience for both performers and spectators.
+					</p>
+					<p className="text-lg">
+						Visualizing Telematic Music Performance is part of the Faculty Engineering/Arts Student Teams (FEAST) Program, sponsored by ArtsEngine and the Arts Initiative at the University of Michigan.
+					</p>
 					<div className="h-6"> </div>
 				</div>
 			);
