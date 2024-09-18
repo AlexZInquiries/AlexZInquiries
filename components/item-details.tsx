@@ -7,22 +7,23 @@ import { IoCloseOutline } from "react-icons/io5";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
-interface ProjectDetailsProps {
-	projectKey: string;
+interface ItemDetailsProps {
+	itemKey: string;
 	mediaUrls: Record<string, string[]>;
 }
 
-const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }) => {
+const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }) => {
 	const router = useRouter();
 
-	const researchProjectKeys = ['ethnomusicology', 'vtmp', 'boulez', 'deep-drawing'];
+	const researchKeys = ['ethnomusicology', 'vtmp', 'boulez', 'deep-drawing'];
 
 	const handleBack = () => {
-		const isResearch = researchProjectKeys.includes(projectKey);
+		const isResearch = researchKeys.includes(itemKey);
+
 		router.push(`/${isResearch ? 'research' : 'projects'}`);
 	};
 
-	const getProjectTitle = (key: string): string => {
+	const getItemTitle = (key: string): string => {
 		switch (key) {
 			// Research
 			case "ethnomusicology":
@@ -44,8 +45,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 		}
 	};
 
-	const renderProjectContent = () => {
-		switch (projectKey) {
+	const renderItemContent = () => {
+		switch (itemKey) {
 		// Research
 		case "ethnomusicology":
 			return (
@@ -53,12 +54,12 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 					<p className="text-lg">
 						Coming soon.
 					</p>
-					{mediaUrls[projectKey] && (
+					{mediaUrls[itemKey] && (
 						<div className="w-full flex flex-wrap justify-center gap-4">
-							{mediaUrls[projectKey].map((url, index) => (
+							{mediaUrls[itemKey].map((url, index) => (
 								<Image
 									key={index}
-									alt={`${projectKey} media ${index + 1}`}
+									alt={`${itemKey} media ${index + 1}`}
 									className="rounded-lg"
 									height={300}
 									src={url}
@@ -76,12 +77,12 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 					<p className="text-lg">
 						Coming soon.
 					</p>
-					{mediaUrls[projectKey] && (
+					{mediaUrls[itemKey] && (
 						<div className="w-full flex flex-wrap justify-center gap-4">
-							{mediaUrls[projectKey].map((url, index) => (
+							{mediaUrls[itemKey].map((url, index) => (
 								<Image
 									key={index}
-									alt={`${projectKey} media ${index + 1}`}
+									alt={`${itemKey} media ${index + 1}`}
 									className="rounded-lg"
 									height={300}
 									src={url}
@@ -99,12 +100,12 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 					<p className="text-lg">
 						Coming soon.
 					</p>
-					{mediaUrls[projectKey] && (
+					{mediaUrls[itemKey] && (
 						<div className="w-full flex flex-wrap justify-center gap-4">
-							{mediaUrls[projectKey].map((url, index) => (
+							{mediaUrls[itemKey].map((url, index) => (
 								<Image
 									key={index}
-									alt={`${projectKey} media ${index + 1}`}
+									alt={`${itemKey} media ${index + 1}`}
 									className="rounded-lg"
 									height={300}
 									src={url}
@@ -122,12 +123,12 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 					<p className="text-lg">
 						Coming soon.
 					</p>
-					{mediaUrls[projectKey] && (
+					{mediaUrls[itemKey] && (
 						<div className="w-full flex flex-wrap justify-center gap-4">
-							{mediaUrls[projectKey].map((url, index) => (
+							{mediaUrls[itemKey].map((url, index) => (
 								<Image
 									key={index}
-									alt={`${projectKey} media ${index + 1}`}
+									alt={`${itemKey} media ${index + 1}`}
 									className="rounded-lg"
 									height={300}
 									src={url}
@@ -150,12 +151,12 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 				<p className="text-lg">
 					For more details and source code, visit the <a className="text-blue-500 hover:underline" href="https://github.com/RealAlexZ/MultiMeter" rel="noopener noreferrer" target="_blank">GitHub repository</a>.
 				</p>
-				{mediaUrls[projectKey] && (
+				{mediaUrls[itemKey] && (
 					<div className="w-full flex flex-wrap justify-center gap-4">
-						{mediaUrls[projectKey].map((url, index) => (
+						{mediaUrls[itemKey].map((url, index) => (
 							<Image
 								key={index}
-								alt={`${projectKey} media ${index + 1}`}
+								alt={`${itemKey} media ${index + 1}`}
 								className="rounded-lg"
 								height={390}
 								src={url}
@@ -222,12 +223,12 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 					<p className="text-lg">
 						Coming soon.
 					</p>
-					{mediaUrls[projectKey] && (
+					{mediaUrls[itemKey] && (
 						<div className="w-full flex flex-wrap justify-center gap-4">
-							{mediaUrls[projectKey].map((url, index) => (
+							{mediaUrls[itemKey].map((url, index) => (
 								<Image
 									key={index}
-									alt={`${projectKey} media ${index + 1}`}
+									alt={`${itemKey} media ${index + 1}`}
 									className="rounded-lg"
 									height={300}
 									src={url}
@@ -263,7 +264,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 			>
 			<Card className="w-full h-full bg-white dark:bg-gray-900 overflow-hidden rounded-2xl">
 			<CardHeader className="flex justify-between items-center p-6 sticky top-0 bg-white dark:bg-gray-900 z-10 rounded-t-2xl">
-				<h2 className="text-2xl font-bold">{getProjectTitle(projectKey)}</h2>
+				<h2 className="text-2xl font-bold">{getItemTitle(itemKey)}</h2>
 				<button
 					className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
 					onClick={handleBack}
@@ -277,7 +278,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 					initial={{ opacity: 0 }}
 					transition={{ delay: 0.2, duration: 0.5 }}
 				>
-					{renderProjectContent()}
+					{renderItemContent()}
 				</motion.div>
 				</CardBody>
 			</Card>
@@ -287,4 +288,4 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 	);
 };
 
-export default ProjectDetails;
+export default ItemDetails;

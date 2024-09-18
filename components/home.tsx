@@ -15,7 +15,7 @@ import Education from "@/components/education";
 import IndustryExperience from "@/components/industry-experience";
 import CreativeExperience from "@/components/creative-experience";
 import IconCloud from "@/components/icon-cloud";
-import ProjectDetails from "@/components/project-details";
+import ItemDetails from "@/components/item-details";
 import {
 	JournalArticles,
 	Performances,
@@ -85,8 +85,8 @@ const Home = ({
 		router.push(`/${selectedKey}`);
 	};
 
-	const handleProjectClick = (projectKey: string) => {
-		router.push(`/${selectedTab}/${projectKey}`);
+	const handleProjectClick = (itemKey: string) => {
+		router.push(`/${selectedTab}/${itemKey}`);
 	};
 
 	const handleTagFilterChange = (newSelectedTags: string[]) => {

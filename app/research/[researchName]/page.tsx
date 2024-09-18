@@ -1,5 +1,5 @@
 import { getPhotoUrl } from '@/firebase/db/photo';
-import ProjectDetails from '@/components/project-details';
+import ItemDetails from '@/components/item-details';
 
 interface PageProps {
     params: {
@@ -36,8 +36,8 @@ export default async function ResearchPage({ params }: PageProps) {
 
     // Render the ProjectDetails component
     return (
-        <ProjectDetails
-        projectKey={researchName}
+        <ItemDetails
+        itemKey={researchName}
         mediaUrls={mediaUrls}
         />
     );
