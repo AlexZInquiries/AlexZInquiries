@@ -14,8 +14,8 @@ const JournalArticles = () => {
         <PublicationCard title="Journal Articles">
             <li>
                 Carter, S. and <b>Z. Zhang</b>. 2024.
-                <a className={linkClasses} href="https://www.amis.org/journal">Father Amiot&apos;s Report of the Kangxi Emperor&apos;s &quot;Improvements&quot; to Ritual Instruments in Eighteenth-Century China.</a>
-                <i>Journal of the American Musical Instrument Society (JAMIS).</i>
+                <a className={linkClasses} href="https://www.amis.org/journal">&quot;Father Amiot&apos;s Report of the Kangxi Emperor&apos;s &apos;Improvements&apos; to Ritual Instruments in Eighteenth-Century China.&quot;</a>
+                <i>Journal of the American Musical Instrument Society.</i>
             </li>
         </PublicationCard>
     );
