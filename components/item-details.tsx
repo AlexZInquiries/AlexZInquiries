@@ -103,7 +103,22 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }
 			return (
 				<div className="space-y-6">
 					<p className="text-lg">
-						Coming soon.
+						Deep Drawing, led by Dr. Julie Zhu and Professor John Granzow at the University of Michigan, utilizes artificial intelligence to create a novel form of intermedia performance while investigating the unique relationship between the auditory and visual aspects of hand drawing. Deep Drawing was presented as a performance at the 2024 Conference on AI and Musical Creativity (AIMC).
+					</p>
+					<p className="text-lg">
+						Our system interprets the sounds of drawing in real-time, generating predicted visual outputs projected on top of the artist&apos;s physical drawing. By focusing on these subtle, often ignored noises, we propose an alternative philosophy of human-machine creativity that embraces the aesthetic value of AI&apos;s misinterpretations and errors. These so-called mistakes—moments when the AI&apos;s visual output diverges from the human&apos;s actual drawing—become integral to the artistic process.
+					</p>
+					<p className="text-lg">
+						The AI&apos;s unexpected interpretations can prompt the human artist to explore and diverge from the original momentum, creating a unique aesthetic tension. We invite the audience to reconsider the evolving role of AI as a collaborator in a dynamic feedback loop of creativity with humans and its potential to augment, rather than replace, human creativity.
+					</p>
+					<p className="text-lg">
+						At the core of our system is a convolutional neural network (CNN)—a fine-tuned ResNet 50 trained on our dataset of four-channel spectrograms and 2D coordinates, with its input and output layers modified for our specific task. The system captures sound from an audio interface routed to four contact microphones attached to a wooden drawing surface, processes the audio into spectrograms, and generates continuous 2D coordinates that drive a live visual display in the browser, overlaid with the video capture of the drawing.
+					</p>
+					<p className="text-lg">
+						We are continuing the development of Deep Drawing with novel forms of data and neural network architectures.
+					</p>
+					<p className="text-lg">
+						Deep Drawing is supported by the Performing Arts Technology Department and the ADVANCE program at the University of Michigan.
 					</p>
 					<div className="h-6"> </div>
 				</div>
