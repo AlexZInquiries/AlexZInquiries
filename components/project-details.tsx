@@ -23,12 +23,18 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 	const getProjectTitle = (key: string): string => {
 		switch (key) {
 			// Research
+			case "ethnomusicology":
+				return "Ethnomusicology Research on Ancient Chinese Musical Instruments";
+			case "vtmp":
+				return "VTMP Research";
+			case "boulez":
+				return "Boulez Research";
+			case "deep-drawing":
+				return "Deep Drawing Research";
 			// Publications
 			// Projects
 			case "multimeter":
 				return "MultiMeter";
-			case "ethnomusicology":
-				return "Ethnomusicology Research on Ancient Chinese Musical Instruments";
 			case "improvisationTutor":
 				return "Improvisation Tutor";
 			default:
@@ -40,6 +46,75 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }
 		switch (projectKey) {
 		// Research
 		case "ethnomusicology":
+			return (
+				<div className="space-y-6">
+					<p className="text-lg">
+						Coming soon.
+					</p>
+					{mediaUrls[projectKey] && (
+						<div className="w-full flex flex-wrap justify-center gap-4">
+							{mediaUrls[projectKey].map((url, index) => (
+								<Image
+									key={index}
+									alt={`${projectKey} media ${index + 1}`}
+									className="rounded-lg"
+									height={300}
+									src={url}
+									width={500}
+								/>
+							))}
+						</div>
+					)}
+					<div className="h-6"> </div>
+				</div>
+			);
+		case "vtmp":
+			return (
+				<div className="space-y-6">
+					<p className="text-lg">
+						Coming soon.
+					</p>
+					{mediaUrls[projectKey] && (
+						<div className="w-full flex flex-wrap justify-center gap-4">
+							{mediaUrls[projectKey].map((url, index) => (
+								<Image
+									key={index}
+									alt={`${projectKey} media ${index + 1}`}
+									className="rounded-lg"
+									height={300}
+									src={url}
+									width={500}
+								/>
+							))}
+						</div>
+					)}
+					<div className="h-6"> </div>
+				</div>
+			);
+		case "boulez":
+			return (
+				<div className="space-y-6">
+					<p className="text-lg">
+						Coming soon.
+					</p>
+					{mediaUrls[projectKey] && (
+						<div className="w-full flex flex-wrap justify-center gap-4">
+							{mediaUrls[projectKey].map((url, index) => (
+								<Image
+									key={index}
+									alt={`${projectKey} media ${index + 1}`}
+									className="rounded-lg"
+									height={300}
+									src={url}
+									width={500}
+								/>
+							))}
+						</div>
+					)}
+					<div className="h-6"> </div>
+				</div>
+			);
+		case "deep-drawing":
 			return (
 				<div className="space-y-6">
 					<p className="text-lg">

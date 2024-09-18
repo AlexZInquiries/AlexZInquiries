@@ -38,6 +38,9 @@ interface HomeProps {
 	resumeUrl: string;
 	// Research
 	ethnomusicologyUrl: string;
+	vtmpUrl: string;
+	boulezUrl: string;
+	deepDrawingUrl: string;
 	// Publications
 	amis2023Url: string;
 	amis2024Url: string;
@@ -58,6 +61,9 @@ const Home = ({
 	resumeUrl,
 	// Research
 	ethnomusicologyUrl,
+	vtmpUrl,
+	boulezUrl,
+	deepDrawingUrl,
 	// Publications
 	amis2023Url,
 	amis2024Url,
@@ -290,6 +296,34 @@ const Home = ({
 									);
 								// Research
 								case "ethnomusicology":
+								case "vtmp":
+								case "boulez":
+								case "deep-drawing":
+									const researchDetails = {
+										ethnomusicology: {
+											description: "Exploring musical, cultural, and historical significance of Chinese musical instruments from the Tang, Ming, and Qing dynasties",
+											linkText: "Ethnomusicology Research on Ancient Chinese Musical Instruments",
+											imageUrl: ethnomusicologyUrl,
+										},
+										vtmp: {
+											description: "Scrutinizing the Intersection of Embodied Musicianship and Networked Music Performance",
+											linkText: "Visualizing Telematic Music Performance",
+											imageUrl: vtmpUrl,
+										},
+										boulez: {
+											description: "Designing an Immersive Educational Experience to Celebrate Pierre Boulez's Centenary",
+											linkText: "Web-based Spatial Audio Playground for IRCAM",
+											imageUrl: boulezUrl,
+										},
+										'deep-drawing': {
+											description: "Bridging Sound, Hand Drawing, and Artificial Intelligence in Live Performances",
+											linkText: "Deep Drawing: An Intermedia AI Co-Performer",
+											imageUrl: deepDrawingUrl,
+										},
+									};
+
+									const currentResearch = researchDetails[key as keyof typeof researchDetails];
+
 									return (
 										<motion.div
 										key={key}
@@ -305,17 +339,15 @@ const Home = ({
 											btnHoverStyles="hover:bg-default-100 dark:border-knight"
 											btnStyles="bg-white dark:bg-darkBg bottom-2 left-2"
 											containerStyles="bg-cardBlue dark:bg-darkBg"
-											description="Exploring musical, cultural, and historical significance of Chinese musical instruments from the Tang, Ming, and Qing dynasties."
+											description={currentResearch.description}
 											imageClass="w-full h-full object-cover"
 											imageHeight={515}
 											imageStyles="w-full h-full object-cover"
-											imageUrl={ethnomusicologyUrl}
+											imageUrl={currentResearch.imageUrl}
 											imageWidth={795}
-											linkText="Ethnomusicology Research on Ancient Chinese Musical Instruments"
+											linkText={currentResearch.linkText}
 											overlayStyles="absolute inset-0 bg-black bg-opacity-30 dark:bg-opacity-50"
-											onClick={() =>
-											handleProjectClick("ethnomusicology")
-											}
+											onClick={() => handleProjectClick(key)}
 										/>
 										</motion.div>
 									);

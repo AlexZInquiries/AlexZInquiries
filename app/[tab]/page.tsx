@@ -26,6 +26,9 @@ export default async function Page({ params }: { params: { tab: string } }) {
 
   // Research
   const ethnomusicologyUrlPromise = getPhotoUrl("research/ethnomusicology.jpeg");
+  const vtmpUrlPromise = getPhotoUrl("research/vtmp.jpg");
+  const boulezUrlPromise = getPhotoUrl("research/boulez.jpg");
+  const deepDrawingUrlPromise = getPhotoUrl("research/deep-drawing.jpg");
 
   // Publications
   const amis2023UrlPromise = getPhotoUrl("publications/amis-2023-presentation.pdf");
@@ -45,6 +48,9 @@ export default async function Page({ params }: { params: { tab: string } }) {
     cartoonUrl,
     resumeUrl,
     ethnomusicologyUrl,
+    vtmpUrl,
+    boulezUrl,
+    deepDrawingUrl,
     amis2023Url,
     amis2024Url,
     aimc2024Url,
@@ -55,6 +61,9 @@ export default async function Page({ params }: { params: { tab: string } }) {
     cartoonUrlPromise,
     resumeUrlPromise,
     ethnomusicologyUrlPromise,
+    vtmpUrlPromise,
+    boulezUrlPromise,
+    deepDrawingUrlPromise,
     amis2023UrlPromise,
     amis2024UrlPromise,
     aimc2024UrlPromise,
@@ -77,6 +86,9 @@ export default async function Page({ params }: { params: { tab: string } }) {
       resumeUrl={resumeUrl}
       // Research
       ethnomusicologyUrl={ethnomusicologyUrl}
+      vtmpUrl={vtmpUrl}
+      boulezUrl={boulezUrl}
+      deepDrawingUrl={deepDrawingUrl}
       // Publications
       amis2023Url={amis2023Url}
       amis2024Url={amis2024Url}

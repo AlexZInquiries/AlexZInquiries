@@ -10,6 +10,9 @@ interface PageProps {
 export async function generateStaticParams() {
     const researchNames = [
         'ethnomusicology',
+        'vtmp',
+        'boulez',
+        'deep-drawing',
     ];
 
     return researchNames.map((researchName) => ({ researchName }));
@@ -22,6 +25,12 @@ export default async function ResearchPage({ params }: PageProps) {
     let mediaUrls: Record<string, string[]> = {};
 
     if (researchName === 'ethnomusicology') {
+        mediaUrls[researchName] = [];
+    } else if (researchName === 'vtmp') {
+        mediaUrls[researchName] = [];
+    } else if (researchName === 'boulez') {
+        mediaUrls[researchName] = [];
+    } else if (researchName === 'deep-drawing') {
         mediaUrls[researchName] = [];
     }
 
