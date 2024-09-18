@@ -27,10 +27,10 @@ export const layouts: Record<string, Layouts> = {
 
 	research: {
 		lg: [
-			{ i: "ethnomusicology", x: 0, y: 0, w: 2, h: 2 },
-			{ i: "vtmp", x: 2, y: 0, w: 2, h: 2 },
-			{ i: "boulez", x: 0, y: 2, w: 2, h: 2 },
-			{ i: "deep-drawing", x: 2, y: 2, w: 2, h: 2 },
+			{ i: "ethnomusicology", x: 0, y: 2, w: 2, h: 2 },
+			{ i: "vtmp", x: 2, y: 2, w: 2, h: 2 },
+			{ i: "boulez", x: 0, y: 0, w: 2, h: 2 },
+			{ i: "deep-drawing", x: 2, y: 0, w: 2, h: 2 },
 		],
 		// Add other breakpoints if needed
 	},
