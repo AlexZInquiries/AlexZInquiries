@@ -15,8 +15,10 @@ interface ProjectDetailsProps {
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projectKey, mediaUrls }) => {
 	const router = useRouter();
 
+	const researchProjectKeys = ['ethnomusicology', 'vtmp', 'boulez', 'deep-drawing'];
+
 	const handleBack = () => {
-		const isResearch = projectKey === 'ethnomusicology'; // Adjust this condition based on your project keys
+		const isResearch = researchProjectKeys.includes(projectKey);
 		router.push(`/${isResearch ? 'research' : 'projects'}`);
 	};
 
