@@ -85,22 +85,17 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }
 			return (
 				<div className="space-y-6">
 					<p className="text-lg">
-						Coming soon.
+						As part of my visiting position at NYU Shanghai&apos;s Music Experience Design (MusED) Lab, headed by Professor Alex Ruthmann, in 2024, we are developing an immersive web-based educational tool that presents Pierre Boulez&apos;s <i>Dialogue de l&apos;ombre double (Dialogue of the Double Shadow)</i>. This project, coinciding with Boulez&apos;s 100th birthday anniversary in 2025, stems from Professor Ruthmann&apos;s artistic research residency with the pedagogical team at IRCAM. It will be submitted to the Computer Music Journal and presented at the IRCAM Forum in 2025.
 					</p>
-					{mediaUrls[itemKey] && (
-						<div className="w-full flex flex-wrap justify-center gap-4">
-							{mediaUrls[itemKey].map((url, index) => (
-								<Image
-									key={index}
-									alt={`${itemKey} media ${index + 1}`}
-									className="rounded-lg"
-									height={300}
-									src={url}
-									width={500}
-								/>
-							))}
-						</div>
-					)}
+					<p className="text-lg">
+						Our goal is to create an immersive experience accessible to novice audiences worldwide, bringing spatial audio and experimental electronic music out of the ivory tower while deterritorializing traditional musicianship, highlighting the indispensable contributions made by technologists and engineers. Additionally, we aim to provide a prototype for archives, performance organizations, and music educators to better showcase and advocate for historical musical works in the digital age.
+					</p>
+					<p className="text-lg">
+						Our team is applying design-based research methodologies and pedagogical principles pioneered at the NYU MusEDLab within an iterative development process to explore the multifaceted nature of this masterpiece. The playground offers multiple entry points, allowing users to explore the piece from the perspectives of the composer, the composition itself, performers, and the often-overlooked technologists crucial to realizing computer music. Our interface aims to unveil the compositional processes and ideas sometimes obscured by the composers while respecting the complexity and depth of their artistic vision. By leveraging the Web Audio API, we are tackling the technical challenges of faithfully reproducing Boulez&apos;s intricate spatial audio concepts in a browser-based format.
+					</p>
+					<p className="text-lg">
+						We are continuing the development of the spatial audio playground with user experiments and ongoing user interface optimization.
+					</p>
 					<div className="h-6"> </div>
 				</div>
 			);
@@ -110,20 +105,6 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }
 					<p className="text-lg">
 						Coming soon.
 					</p>
-					{mediaUrls[itemKey] && (
-						<div className="w-full flex flex-wrap justify-center gap-4">
-							{mediaUrls[itemKey].map((url, index) => (
-								<Image
-									key={index}
-									alt={`${itemKey} media ${index + 1}`}
-									className="rounded-lg"
-									height={300}
-									src={url}
-									width={500}
-								/>
-							))}
-						</div>
-					)}
 					<div className="h-6"> </div>
 				</div>
 			);
