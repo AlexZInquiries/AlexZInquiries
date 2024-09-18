@@ -39,6 +39,7 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, onFilterChange }) => {
         if (selectedTags.includes(tag.name)) {
             return tag.color;
         }
+
         return resolvedTheme === 'dark' ? '#3f3f46' : '#ece7e7';
     };
 

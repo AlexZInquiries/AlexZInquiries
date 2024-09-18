@@ -52,22 +52,14 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }
 			return (
 				<div className="space-y-6">
 					<p className="text-lg">
-						Coming soon.
+						My research in ethnomusicology explores the tapestry of ancient Chinese musical instruments, examining their continuity and transformation across various historical periods. I focus on their intricate relationship with social, cultural, and political structures. My work in this area has led to a conference paper presentation, a conference poster presentation, and a journal article for the American Musical Instrument Society (AMIS) between 2023 and 2024.
 					</p>
-					{mediaUrls[itemKey] && (
-						<div className="w-full flex flex-wrap justify-center gap-4">
-							{mediaUrls[itemKey].map((url, index) => (
-								<Image
-									key={index}
-									alt={`${itemKey} media ${index + 1}`}
-									className="rounded-lg"
-									height={300}
-									src={url}
-									width={500}
-								/>
-							))}
-						</div>
-					)}
+					<p className="text-lg">
+						In collaboration with Professor Stewart Carter at Wake Forest University, I zoom in on the evolution of Chinese musical instruments and practices during the Ming and Qing dynasties. We examine sources in both classical Chinese and French, such as Daqing huidian (大清会典), Lülü zhengyi (律吕正义), and the manuscripts of Joseph-Marie Amiot, an 18th-century Jesuit missionary to China. Our analysis evaluates and compares the measurements of musical instruments in these treatises, highlighting both the overall accuracy of Amiot&apos;s descriptions and some subtle yet intriguing flaws. Ultimately, our work sheds light on the broader landscape of early musical exchange between China and Europe.
+					</p>
+					<p className="text-lg">
+						Our research also delves into earlier periods, leveraging the iconography of terracotta musicians and dancers from the Former and Later Shu kingdoms of the 10th century. Another joint effort with Professor Carter shows how these regional powers emulated musical traditions of the preceding Tang Dynasty to establish legitimacy. Analyzing artifacts from the Yongling Mausoleum and the Chengdu Museum reveals the enduring influence of Tang court music and dance, while also highlighting unique regional adaptations.
+					</p>
 					<div className="h-6"> </div>
 				</div>
 			);
