@@ -10,16 +10,18 @@ import { useRouter } from 'next/navigation';
 interface ItemDetailsProps {
 	itemKey: string;
 	mediaUrls: Record<string, string[]>;
+	amis2023Url: string;
+	amis2024Url: string;
+	aimc2024Url: string;
 }
 
-const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }) => {
+const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey, mediaUrls, amis2023Url, amis2024Url, aimc2024Url }) => {
 	const router = useRouter();
 
 	const researchKeys = ['ethnomusicology', 'vtmp', 'boulez', 'deep-drawing'];
 
 	const handleBack = () => {
 		const isResearch = researchKeys.includes(itemKey);
-
 		router.push(`/${isResearch ? 'research' : 'projects'}`);
 	};
 
@@ -60,6 +62,26 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }
 					<p className="text-lg">
 						Our research also delves into earlier periods, leveraging the iconography of terracotta musicians and dancers from the Former and Later Shu kingdoms of the 10th century. Another joint effort with Professor Carter shows how these regional powers emulated musical traditions of the preceding Tang Dynasty to establish legitimacy. Analyzing artifacts from the Yongling Mausoleum and the Chengdu Museum reveals the enduring influence of Tang court music and dance, while also highlighting unique regional adaptations.
 					</p>
+					<p className="text-lg">
+						Relevant publications:
+					</p>
+					<ul className="list-disc pl-5">
+						<li>
+							Carter, S. and <b>Z. Zhang</b>. 2024.
+							<a className="font-medium text-primary-600 px-1 py-0.5 rounded transition-all duration-300 ease-in-out hover:bg-primary-100 dark:hover:bg-primary-800/30 hover:scale-105" href="https://www.amis.org/journal">&quot;Father Amiot&apos;s Report of the Kangxi Emperor&apos;s &apos;Improvements&apos; to Ritual Instruments in Eighteenth-Century China.&quot;</a>
+							<i>Journal of the American Musical Instrument Society.</i>
+						</li>
+						<li>
+							May 2024. The 53rd Annual Meeting of the American Musical Instrument Society (AMIS).
+							<a className="font-medium text-primary-600 px-1 py-0.5 rounded transition-all duration-300 ease-in-out hover:bg-primary-100 dark:hover:bg-primary-800/30 hover:scale-105" href={amis2024Url} rel="noopener noreferrer" target="_blank">&quot;Music, Instruments, and Dance in Tenth-Century Shu: Echoes of the Great Tang&quot;.</a>
+							(Poster Presentation with S. Carter)
+						</li>
+						<li>
+							June 2023. The 52nd Annual Meeting of the American Musical Instrument Society (AMIS).
+							<a className="font-medium text-primary-600 px-1 py-0.5 rounded transition-all duration-300 ease-in-out hover:bg-primary-100 dark:hover:bg-primary-800/30 hover:scale-105" href={amis2023Url} rel="noopener noreferrer" target="_blank">&quot;Kangxi, Father Amiot, and &apos;Improvements&apos; to Ritual Instruments in Eighteenth-Century China&quot;.</a>
+							(Paper Presentation with S. Carter)
+						</li>
+					</ul>
 					<div className="h-6"> </div>
 				</div>
 			);
@@ -123,6 +145,18 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey: itemKey, mediaUrls }
 					<p className="text-lg">
 						Deep Drawing is supported by the Performing Arts Technology Department and the ADVANCE program at the University of Michigan.
 					</p>
+					<p className="text-lg">
+						Relevant publications:
+					</p>
+					<ul className="list-disc pl-5">
+						<li>
+							Zhu, J., E. Ackley, <b>Z. Zhang</b>, and J. Granzow. 2024.
+							<a className="font-medium text-primary-600 px-1 py-0.5 rounded transition-all duration-300 ease-in-out hover:bg-primary-100 dark:hover:bg-primary-800/30 hover:scale-105" href={aimc2024Url} rel="noopener noreferrer" target="_blank">
+							&quot;Deep Drawing: An Intermedia AI Co-Performer.&quot;
+							</a>
+							<i>The International Conference on AI and Musical Creativity (AIMC).</i>
+						</li>
+					</ul>
 					<div className="h-6"> </div>
 				</div>
 			);

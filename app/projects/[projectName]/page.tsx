@@ -28,9 +28,9 @@ export default async function ProjectPage({ params }: PageProps) {
         ];
     } else if (projectName === 'improvisationTutor') {
         mediaUrls[projectName] = [];
-    } 
+    }
 
-    // Render the ProjectDetails component
+    // Render the ItemDetails component
     return (
         <ItemDetails
         itemKey={projectName}

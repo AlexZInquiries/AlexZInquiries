@@ -26,7 +26,7 @@ const Performances = ({ aimc2024Url }: { aimc2024Url: string }) => {
         <PublicationCard title="Performances">
             <li>
                 Zhu, J., E. Ackley, <b>Z. Zhang</b>, and J. Granzow. 2024.
-                <a className={linkClasses} href={aimc2024Url} rel="noopener noreferrer" target="_blank">Deep Drawing: An Intermedia AI Co-Performer.</a>
+                <a className={linkClasses} href={aimc2024Url} rel="noopener noreferrer" target="_blank">&quot;Deep Drawing: An Intermedia AI Co-Performer.&quot;</a>
                 <i>The International Conference on AI and Musical Creativity (AIMC).</i>
             </li>
         </PublicationCard>

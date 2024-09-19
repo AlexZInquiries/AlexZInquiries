@@ -34,11 +34,18 @@ export default async function ResearchPage({ params }: PageProps) {
         mediaUrls[researchName] = [];
     }
 
-    // Render the ProjectDetails component
+    const amis2023Url = await getPhotoUrl("publications/amis-2023-presentation.pdf");
+    const amis2024Url = await getPhotoUrl("publications/amis-2024-poster.pdf");
+    const aimc2024Url = await getPhotoUrl("publications/aimc-2024-paper.pdf");
+
+    // Render the ItemDetails component
     return (
         <ItemDetails
         itemKey={researchName}
         mediaUrls={mediaUrls}
+        amis2023Url={amis2023Url}
+        amis2024Url={amis2024Url}
+        aimc2024Url={aimc2024Url}
         />
     );
 }
