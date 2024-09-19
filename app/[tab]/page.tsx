@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: { tab: string } }) {
 
   // Projects
   const multimeterUrlPromise = getPhotoUrl("projects/multimeter.jpg");
-  const improvisationTutorUrlPromise = getPhotoUrl("projects/placeholder.png"); // To be updated
+  const improvisationTutorUrlPromise = getPhotoUrl("projects/placeholder.jpg"); // To be updated
 
   const mediaUrls: Record<string, string[]> = {
     multimeter: [await getPhotoUrl("projects/multimeter.gif")],
