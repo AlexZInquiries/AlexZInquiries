@@ -1,5 +1,6 @@
 import React from "react";
-import MusicPlayerCard from "@/components/music-play-card";
+
+import MusicPlayerCard from "@/components/music-player-card";
 
 interface Song {
     title: string;

@@ -29,7 +29,7 @@ import { icons } from "@/config/icons";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import TagFilter from "@/components/tag-filter";
 import { getTagColor } from "@/lib/utils";
-import MusicPlayerCard from "@/components/music-play-card";
+import MusicPlayerCard from "@/components/music-player-card";
 
 interface HomeProps {
 	selectedTab: string;
