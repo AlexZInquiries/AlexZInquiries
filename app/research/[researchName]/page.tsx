@@ -41,11 +41,11 @@ export default async function ResearchPage({ params }: PageProps) {
     // Render the ItemDetails component
     return (
         <ItemDetails
-        itemKey={researchName}
-        mediaUrls={mediaUrls}
+        aimc2024Url={aimc2024Url}
         amis2023Url={amis2023Url}
         amis2024Url={amis2024Url}
-        aimc2024Url={aimc2024Url}
+        itemKey={researchName}
+        mediaUrls={mediaUrls}
         />
     );
 }

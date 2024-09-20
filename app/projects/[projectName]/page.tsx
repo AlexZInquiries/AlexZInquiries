@@ -37,11 +37,11 @@ export default async function ProjectPage({ params }: PageProps) {
     // Render the ItemDetails component
     return (
         <ItemDetails
-        itemKey={projectName}
-        mediaUrls={mediaUrls}
+        aimc2024Url={aimc2024Url}
         amis2023Url={amis2023Url}
         amis2024Url={amis2024Url}
-        aimc2024Url={aimc2024Url}
+        itemKey={projectName}
+        mediaUrls={mediaUrls}
         />
     );
 }

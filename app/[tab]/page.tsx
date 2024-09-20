@@ -12,6 +12,7 @@ export function generateStaticParams() {
 }
 
 interface Song {
+    id: string;
     title: string;
     soundCloudUrl: string;
 }
@@ -100,27 +101,27 @@ export default async function Page({ params }: { params: { tab: string } }) {
 
   return (
     <Home
-      selectedTab={selectedTab}
-      // About
-      avatarUrl={avatarUrl}
-      cartoonUrl={cartoonUrl}
-      resumeUrl={resumeUrl}
-      // Research
-      ethnomusicologyUrl={ethnomusicologyUrl}
-      vtmpUrl={vtmpUrl}
-      boulezUrl={boulezUrl}
-      deepDrawingUrl={deepDrawingUrl}
-      // Publications
-      amis2023Url={amis2023Url}
       amis2024Url={amis2024Url}
+      boulezUrl={boulezUrl}
+      cartoonUrl={cartoonUrl}
+      improvisationTutorUrl={improvisationTutorUrl}
+      mediaUrls={mediaUrls}
+      vtmpUrl={vtmpUrl}
       aimc2024Url={aimc2024Url}
       // Projects
       multimeterUrl={multimeterUrl}
-      improvisationTutorUrl={improvisationTutorUrl}
-      mediaUrls={mediaUrls}
+      deepDrawingUrl={deepDrawingUrl}
+      // Publications
+      amis2023Url={amis2023Url}
       projectTags={projectTags}
       // Music
       songs={selectedTab === "music" ? songs : undefined}
+      resumeUrl={resumeUrl}
+      // Research
+      ethnomusicologyUrl={ethnomusicologyUrl}
+      selectedTab={selectedTab}
+      // About
+      avatarUrl={avatarUrl}
     />
   );
 }
