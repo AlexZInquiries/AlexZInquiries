@@ -46,7 +46,7 @@ const LoadingOverlay = () => {
                     />
                     <defs>
                         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="50%" stopColor="#3b82f6" /> {/* primary-500 */}
+                            <stop offset="75%" stopColor="#3b82f6" /> {/* primary-500 */}
                             <stop offset="100%" stopColor="#4f46e5" /> {/* primary-600 */}
                         </linearGradient>
                     </defs>
