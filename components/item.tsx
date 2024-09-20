@@ -36,23 +36,25 @@ const Item = ({
 
 	useEffect(() => {
 		const preloadImage = new window.Image();
+
 		preloadImage.src = imageUrl;
 		preloadImage.onload = () => setImageLoaded(true);
 	}, [imageUrl]);
 
 	return (
 		<motion.div
-			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-			transition={{ duration: 0.5 }}
 			className={`relative w-full h-full group overflow-hidden ${containerStyles}`}
+			exit={{ opacity: 0 }}
+			initial={{ opacity: 0 }}
+			transition={{ duration: 0.5 }}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 		>
 			<div className={`absolute ${imageStyles}`}>
 				{!imageLoaded && <div className="absolute inset-0 bg-gray-200 animate-pulse" />}
 				<Image
+					priority
 					alt={linkText}
 					className={`${imageClass} transition-transform duration-500 ${
 						isHovered ? "scale-110" : "scale-100"
@@ -60,7 +62,6 @@ const Item = ({
 					height={imageHeight}
 					src={imageUrl}
 					width={imageWidth}
-					priority
 					onLoadingComplete={() => setImageLoaded(true)}
 				/>
 			</div>

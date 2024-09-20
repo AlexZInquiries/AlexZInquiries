@@ -15,7 +15,6 @@ import Education from "@/components/education";
 import IndustryExperience from "@/components/industry-experience";
 import CreativeExperience from "@/components/creative-experience";
 import IconCloud from "@/components/icon-cloud";
-import ItemDetails from "@/components/item-details";
 import {
 	JournalArticles,
 	Performances,
@@ -127,8 +126,8 @@ const Home = ({
 					transition: { type: "spring", stiffness: 300, damping: 15 },
 					}}
 					radius={"full"}
-					onSelectionChange={handleTabChange}
 					selectedKey={selectedTab}
+					onSelectionChange={handleTabChange}
 				>
 					<Tab key="about" title="About" />
 					<Tab key="research" title="Research" />
@@ -140,10 +139,10 @@ const Home = ({
 				<AnimatePresence mode="wait">
 					<motion.div
 					key={selectedTab}
-					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
 					className="w-full"
+					exit={{ opacity: 0 }}
+					initial={{ opacity: 0 }}
 					>
 						<>
 						{selectedTab === "projects" && (
@@ -527,13 +526,14 @@ const Home = ({
 													transition={{ duration: 0.3 }}
 												>
 													<MusicPlayerCard
-														title={song.title}
 														soundCloudUrl={song.soundCloudUrl}
+														title={song.title}
 													/>
 												</motion.div>
 											);
 										}
 									}
+
 									return null;
 								}
 									})}

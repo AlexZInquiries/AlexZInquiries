@@ -11,13 +11,14 @@ const MusicPlayerCard: React.FC<MusicPlayerCardProps> = ({ title, soundCloudUrl 
             <h2 className="text-lg font-semibold mb-2">{title}</h2>
             <div className="w-full">
                 <iframe
-                    width="100%"
+                    allow="autoplay"
+                    frameBorder="no"
                     height="225"
                     scrolling="no"
-                    frameBorder="no"
-                    allow="autoplay"
                     src={soundCloudUrl}
-                ></iframe>
+                    title={`SoundCloud player for ${title}`}
+                    width="100%"
+                 />
                 <div
                     style={{
                         fontSize: "10px",
@@ -34,18 +35,18 @@ const MusicPlayerCard: React.FC<MusicPlayerCardProps> = ({ title, soundCloudUrl 
                 >
                     <a
                         href="https://soundcloud.com/yulania"
-                        title="Yulania"
-                        target="_blank"
+                        rel="noreferrer"
                         style={{ color: "#cccccc", textDecoration: "none" }}
+                        target="_blank" title="Yulania"
                     >
                         Yulania
                     </a>{" "}
                     ·{" "}
                     <a
                         href={soundCloudUrl}
-                        title={title}
-                        target="_blank"
+                        rel="noreferrer"
                         style={{ color: "#cccccc", textDecoration: "none" }}
+                        target="_blank" title={title}
                     >
                         {title}
                     </a>

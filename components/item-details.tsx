@@ -22,6 +22,7 @@ const ItemDetails: React.FC<ItemDetailsProps> = ({ itemKey, mediaUrls, amis2023U
 
 	const handleBack = () => {
 		const isResearch = researchKeys.includes(itemKey);
+
 		router.push(`/${isResearch ? 'research' : 'projects'}`);
 	};
 
