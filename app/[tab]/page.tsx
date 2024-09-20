@@ -4,11 +4,16 @@ import Home from "@/components/home";
 import { getPhotoUrl } from "@/firebase/db/photo";
 
 // Define all possible tabs
-const TABS = ["about", "research", "publications", "projects"];
+const TABS = ["about", "research", "publications", "projects", "music"];
 
 // Export generateStaticParams
 export function generateStaticParams() {
   return TABS.map((tab) => ({ tab }));
+}
+
+interface Song {
+    title: string;
+    soundCloudUrl: string;
 }
 
 export default async function Page({ params }: { params: { tab: string } }) {
@@ -39,6 +44,22 @@ export default async function Page({ params }: { params: { tab: string } }) {
   const multimeterUrlPromise = getPhotoUrl("projects/multimeter.jpg");
   const improvisationTutorUrlPromise = getPhotoUrl("projects/placeholder.jpg"); // To be updated
 
+  // Music
+  const songs: Song[] = [
+    {
+      id: "so-high",
+      title: "So High",
+      soundCloudUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1703243130&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+    },
+    {
+      id: "mosaic",
+      title: "Mosaic",
+      soundCloudUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1694650800&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+    },
+    // Add more songs here with unique 'id's
+  ];
+
+  // Publications
   const mediaUrls: Record<string, string[]> = {
     multimeter: [await getPhotoUrl("projects/multimeter.gif")],
   };
@@ -98,6 +119,8 @@ export default async function Page({ params }: { params: { tab: string } }) {
       improvisationTutorUrl={improvisationTutorUrl}
       mediaUrls={mediaUrls}
       projectTags={projectTags}
+      // Music
+      songs={selectedTab === "music" ? songs : undefined}
     />
   );
 }

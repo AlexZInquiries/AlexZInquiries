@@ -54,6 +54,19 @@ export const layouts: Record<string, Layouts> = {
 		],
 		// Add other breakpoints if needed
 	},
+
+	// New Music tab
+	music: {
+		lg: [
+            { i: "so-high", x: 0, y: 0, w: 1, h: 2 },
+            { i: "mosaic", x: 1, y: 0, w: 1, h: 2 },
+		],
+		// Add more songs here following the same pattern
+		md: [],
+		sm: [],
+		xs: [],
+		xxs: [],
+	},
 };
 
 export const selectedCard: Record<string, Record<string, boolean>> = {
@@ -82,5 +95,10 @@ export const selectedCard: Record<string, Record<string, boolean>> = {
 	projects: {
 		multimeter: true,
 		improvisationTutor: true,
+	},
+	music: {
+		"so-high": true,
+		"mosaic": true,
+		// Add more songs here with their exact identifiers
 	},
 };

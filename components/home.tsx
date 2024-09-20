@@ -29,6 +29,7 @@ import { icons } from "@/config/icons";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import TagFilter from "@/components/tag-filter";
 import { getTagColor } from "@/lib/utils";
+import MusicPlayerCard from "@/components/music-play-card";
 
 interface HomeProps {
 	selectedTab: string;
@@ -51,6 +52,9 @@ interface HomeProps {
 
 	mediaUrls: Record<string, string[]>;
 	projectTags: { [key: string]: string[] };
+
+	// Music
+	songs?: { id: string; title: string; soundCloudUrl: string }[];
 }
 
 const Home = ({
@@ -73,6 +77,8 @@ const Home = ({
 	improvisationTutorUrl,
 	mediaUrls,
 	projectTags,
+	// Music
+	songs,
 }: HomeProps) => {
 	const width = useWindowWidth();
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -128,6 +134,7 @@ const Home = ({
 					<Tab key="research" title="Research" />
 					<Tab key="publications" title="Publications" />
 					<Tab key="projects" title="Projects" />
+					<Tab key="music" title="Music" />
 				</Tabs>
 
 				<AnimatePresence mode="wait">
@@ -502,9 +509,33 @@ const Home = ({
 											/>
 										</motion.div>
 									);
+								// Music
 								default:
-									return null;
+									if (selectedTab === "music") {
+										const song = songs?.find((s) => s.id === key);
+
+										if (song) {
+											return (
+												<motion.div
+													key={key}
+													animate={{ opacity }}
+													className={commonClasses}
+													initial={{ opacity }}
+													style={{
+														pointerEvents: opacity === 1 ? "auto" : "none",
+													}}
+													transition={{ duration: 0.3 }}
+												>
+													<MusicPlayerCard
+														title={song.title}
+														soundCloudUrl={song.soundCloudUrl}
+													/>
+												</motion.div>
+											);
 										}
+									}
+									return null;
+								}
 									})}
 								</Responsive>
 							</>
