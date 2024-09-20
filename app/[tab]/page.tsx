@@ -50,7 +50,7 @@ export default async function Page({ params }: { params: { tab: string } }) {
     {
       id: "so-high",
       title: "So High",
-      soundCloudUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1703243130&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+      soundCloudUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1920002456&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
     },
     {
       id: "mosaic",
